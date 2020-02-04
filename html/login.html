@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../materialize/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="../materialize/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+
+    <link rel="stylesheet" href="../css/Desktop.css" type="text/css">
+    <title>Document</title>
+    <script type="text/javascript">
+        window.onload = function(){
+          firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          window.location.href = "../index.html";
+        } 
+      });
+        }
+        </script>
+    </script>
+</head>
+<body>
+    <div class="caixaForm">
+        <div  method="post">
+            <div class="logoPrincipal">
+                <img src="../imagem/Logo-Acam.png" alt="logo">
+            </div>
+            <div class="CampoLogin">
+                <input type="email" id="emailLogin" name="campoLogin" placeholder="E-mail:"/>
+            </div>
+
+            <div class="CampoLogin">
+                <input type="password" id="senhaLogin"  name="campoLogin" placeholder="Senha:" />
+            </div>
+            
+            <div class="esqueceuSenha">
+                <a href="#" class="esqueceu">Esqueceu sua Senha ?</a>
+            </div>
+
+            <div class="butãoL">
+                <input type="submit" value="Entra" id="butãoLogin">
+            </div>
+            <div class="EsqueceuSenha">
+
+            </div>
+           <div class="LinkCadastro">
+            <a href="Cadastro.html" class="cadastroL">Não tem uma conta? Crie uma aqui!</a>
+           </div>
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
+    <script src="../firebase/firebase.js"></script>
+    <script src="../script/autenticacao.js"></script>
+
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="../materialize/js/materialize.js"></script>
+    <script src="../materialize/js/init.js"></script>
+</body>
+</html>

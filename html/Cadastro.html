@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../materialize/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="../materialize/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link rel="stylesheet" href="../css/Desktop.css" type="text/css">
+    <title>Document</title>
+    <script type="text/javascript">
+        window.onload = function(){
+          firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          window.location.href = "../index.html";
+        } 
+      });
+        }
+        </script>
+</head>
+<body>
+    <h1 class="tituloC">Escolha o tipo de Cadastro:</h1>
+    <div class="caixaC">
+       <div class="opcoes">
+            
+            <input type="button" onclick="CadastroCliente()" value="Cliente" class="campos">
+            <input type="button" onclick="CadastroProfissional()" value="Profissional" class="campos">  
+
+           
+            <div id="cadastro">
+
+            </div>
+        
+      
+       </div>
+
+       
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-database.js"></script>
+    <script src="../firebase/firebase.js"></script>
+    <script src="../script/cadastro.js"></script>
+
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="../materialize/js/materialize.js"></script>
+    <script src="../materialize/js/init.js"></script>
+</body>
+
+</html>

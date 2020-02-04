@@ -1,0 +1,426 @@
+body{
+    margin: 0;
+    background:linear-gradient(to right,teal, rgb(47, 47, 184));
+}
+
+/*tela de login*/
+
+
+.caixaForm{
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+}
+
+.caixaForm form{
+    background-color:white;
+    border-radius: 15px;
+    padding: 35px;
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.5);
+}
+
+.CampoLogin{
+    display: flex;
+    justify-content: center;
+}
+
+#senhaLogin{
+    border: none;
+    border-bottom: 2px solid black;
+    width: 350px;
+    height: 40px;
+    margin:10px;
+    font-size: 18px;
+}
+
+#emailLogin{
+    border: none;
+    border-bottom: 2px solid black;
+    width: 350px;
+    height: 40px;
+    margin: 10px;
+    font-size: 18px;
+}
+
+.butãoL{
+    display: flex;
+    justify-content: center;
+}
+#butãoLogin{
+    border: none;
+    background-color:teal;
+    color: white;
+    width: 350px;
+    height: 35px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    border-radius: 18px;
+    font-family: sans-serif;
+    font-size: 18px;
+}
+
+#butãoLogin:hover{
+    cursor: pointer;
+}
+
+.LinkCadastro{
+    display: flex;
+    justify-content: center;
+}
+.cadastroL{
+    text-decoration: none;
+    color: black;
+    margin-top: 30px;
+    font-family: sans-serif;
+    font-weight: 600;
+}
+.logoPrincipal{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.logoPrincipal img{
+    width: 350px    ;
+}
+.esqueceuSenha{
+    display: flex;
+    justify-content: center;
+}
+.esqueceu{
+    text-decoration:none;
+    color: gray;
+    margin-top: 30px;
+    font-family: sans-serif;
+}
+
+/*tipos de Cadastros*/
+
+.tituloC{
+    color:white;
+    font-family: sans-serif;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 50px;
+}
+
+.caixaC{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.opcoes{
+    background-color:white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.5);
+}
+
+.campos{
+    width: 150px;
+    height: 60px;
+    border:none;
+    margin-top:0px;
+    font-family: sans-serif;
+    font-size: 20px;
+    border-radius: 5%;
+    font-weight: 600;
+    transition: all 0.5s;
+}
+
+.campos:hover{
+    background-color:rgba(6, 114, 255, 0.616);
+    color: white;
+    box-shadow:0.5px 0.5px 0.5px gray;
+    cursor:pointer
+}
+
+.campos:focus{
+    background-color:rgba(255, 6, 6, 0.616);
+    color: white;
+}
+
+/*Cadastros*/
+/*Servirá para todos os tipos de cadastros*/
+.caixaCadastro{
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+}
+.caixaCadastro form{
+    background-color: rgba(128, 128, 128, 0.315);
+    border-radius: 10px;
+    padding: 20px;
+    transition: all 0.5s;
+}
+.caixaCadastro form:hover{
+    background-color: rgba(128, 128, 128, 0.493);;
+}
+
+.tituloCadastros{
+    color: black;
+    text-align: center;
+    margin: 0px;
+    margin-bottom: 20px;
+    font-family: sans-serif;
+    font-size: 35px;
+}
+
+#camposCadastro{
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+}
+
+.Cadastro{
+    border:none;
+    width: 400px;
+    height: 40px;
+    font-size: 18px;
+    border-bottom: 2px solid black;
+}
+
+#criarConta{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.botãoCadastro{
+    width: 400px;
+    height: 40px;
+    border:none;
+    background-color:teal;
+    color: white;
+    font-family: sans-serif;
+    font-size: 18px;
+    border-radius: 18px;
+}
+
+.botãoCadastro:hover{
+    cursor: pointer;
+}
+
+/*  pagina inicial  */
+
+/*  Menu:  */
+
+.ContainerMenu{
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    box-shadow:2px 2px 2px rgba(0,0,0,0.5);
+}
+
+.LogoMenu{
+    margin-top: 5px;
+}
+
+.MenuDesktop{
+    list-style: none;
+    display: flex;
+    flex-direction: row; 
+    margin-top: 28px;   
+}
+
+.MenuDesktop>li{
+    display: block;
+}
+
+.LinkMenu{
+    text-decoration: none;
+    font-size: 22px;
+    font-family: sans-serif;
+    color: black;
+    padding: 15px;
+    margin: 10px;
+    transition:all 0.5s ease-out;
+}
+
+.LinkLogin{
+    text-decoration: none;
+    font-size: 22px;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: black;
+    padding: 15px;
+    color:teal;
+    border: 1px solid rgb(190, 190, 190);
+    border-radius: 20px;
+    margin: 10px;
+    transition: all 0.5s ease-out;
+}
+
+.LinkTelaCadastro{
+    text-decoration: none;
+    font-size: 22px;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: black;
+    padding: 15px;
+    background-color: teal;
+    color: white;
+    margin: 10px;
+    border-radius: 20px;
+}
+.LinkMenu:hover{
+    background-color: teal;
+    color: white;
+    border-radius: 5px;
+}
+.LinkLogin:hover{
+    border-color: teal;
+    background-color: teal;
+    color: white;
+}
+
+#marcadorMenu{
+    display: none;
+}
+.marc{
+     font-size: 30px;
+     color: black;
+     background-color: white;
+     display: block;
+}
+
+.MenuMobile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    display: none;
+}
+
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) { 
+    /*tela de login*/
+    .logoPrincipal img{
+        width: 280px;
+    }
+    #emailLogin{
+        width: 280px;
+    }
+    #senhaLogin{
+        width: 280px;
+    }
+    #butãoLogin{
+        width: 280px;
+    }
+    .caixaForm form{
+        padding: 20px;
+    }
+
+    /*tela de cadastros*/
+    .tituloC{
+        font-size: 40px;
+    }
+     .caixaC{
+         display: flex;
+         flex-direction: column;
+     }
+     .campos{
+         display: flex;
+         flex-direction: column;
+         margin: auto;
+     }
+     .opcoes input{
+         width: 300px;
+         justify-content: center;
+         margin-top: 10px;
+     }
+     .Cadastro{
+         border:none;
+         border-bottom: 2px solid black;
+     }
+
+     /*Menu-Mobile*/
+
+     .ContainerMenu{
+         display: none;
+     }
+     .MenuMobile{
+         display: block;
+     }
+     .LogoMenu-Mobile{
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        padding: 15px;
+    }
+    
+    .MenuMob{
+        background-color:teal;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        width: 100%;
+        height: 380px;
+        margin: 0;
+        padding: 0;
+        margin-left: -102%;
+        transition: all 0.2s ease-in;
+        box-shadow:2px 2px 2px rgba(0,0,0,0.5);
+    }
+    
+    .MenuMob>li{
+        display: block;
+        margin-top: 35px;
+        text-align: center;
+    
+    }
+    .marc{
+        box-shadow:2px 2px 2px rgba(0,0,0,0.5);
+        font-family: sans-serif;
+    }
+    
+    .marc:hover{
+        cursor: pointer;
+    }
+
+    .LinkMenuM{
+        text-decoration: none;
+        font-size: 20px;
+        font-family: sans-serif;
+        padding-left: 100px;
+        padding-right: 100px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        border-radius: 20px;
+        color: white;
+    }
+    
+    .LinkL{
+        text-decoration: none;
+        font-size: 22px;
+        font-family: sans-serif;
+        font-weight: bold;
+        padding-left: 100px;
+        padding-right: 100px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        border-radius: 20px;
+        color: black;
+        background-color: white;
+    }
+
+    .LinkMenuM:hover{
+        background-color:white;
+        color: black;
+    }
+
+
+    
+    #marcadorMenu:checked ~ .MenuMob{
+        margin-left: 0;
+    }
+
+
+
+}
+
+
