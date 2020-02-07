@@ -9,7 +9,7 @@ body{
 .caixaForm{
     display: flex;
     justify-content: center;
-    margin-top: 150px;
+    margin: 2% 30% 0% 30%;
 }
 
 .caixaForm{
@@ -22,6 +22,13 @@ body{
 .CampoLogin{
     display: flex;
     justify-content: center;
+}
+
+.proposta{
+    text-align: center;
+    margin-top: 10%;
+    color: white;
+    font-size: 40px;
 }
 
 #senhaLogin{
