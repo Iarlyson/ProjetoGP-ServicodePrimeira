@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../materialize/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="../materialize/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link rel="stylesheet" href="../css/Desktop.css" type="text/css">
+    <title>Cadastro Cliente</title>
+   <!--  <script type="text/javascript">
+        window.onload = function(){
+          firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          window.location.href = "../index.html";
+        } 
+      });
+        }
+        </script>  -->
+</head>
+<body>
+    <h2 class="center-align white-text">Escolha o tipo de Cadastro</h2>
+    <div style="margin-top: 50px; margin-bottom: 50px; margin-left: 27%;" class="container">
+        <div style="border-radius: 10px; width: 600px; height: 600px;" class="col s12 l8 white">
+            <div style="padding: 70px;" class="black-text">
+                <a href="../html/cadastroCliente.html" style="margin-left: 14%; margin-right: 5px; width: 160px; border-radius: 20px; height: 50px;" class="waves-effect waves-light btn-large red">Cliente</a> <a href="../html/cadastroProfissional.html" style="border-radius: 20px; height: 50px;" class="waves-effect waves-light btn-large red">Profissional</a>
+                <h3 class="center-align">Cadastro Cliente</h3>
+                <center>
+                    <form action="">
+                        <input type="text" name="nome" size="20" placeholder="Nome:" > <br>
+                        <input type="text" class="form-control cpf-mask" min="11" max="14" placeholder="CPF"> <br>
+                        <input type="email" name="email" size="16" placeholder="Email:" >
+                        <input type="password" name="senha" size="16" min="8" max="16" placeholder="senha:" > <br>
+                        <input type="password" name="senha2" size="16" min="8" max="16" placeholder="Confirmar senha:" >
+                        <a style="border-radius: 15px; width: 300px; margin-top: 30px;" class="waves-effect waves-light btn-large">Criar Conta</a>
+                    </form>
+                </center>
+            </div>
+        </div>
+    </div>
+</body>
