@@ -34,7 +34,12 @@
                         <input type="password" name="senha2" size="16" min="8" max="16" placeholder="Confirmar senha:" >
                         <input type="text" name="endereço" placeholder="Endereço:">
                         <input type="date" name="Nascimento" placeholder="Data de Nascimento">
-                        <label for="msexo">Masculino</label><input style="margin-right: 20px;" type="radio" id="msexo" name="sexo"> <label style="margin-left: 50px;" id="fsexo" for="fsexo">Feminino</label><input type="radio" name="sexo" placeholder="Feminino">
+                        <label for="sexo">Sexo:</label>
+                        <select id="sexo">
+                            <option value="Masculino">Masculino</option>
+                            <option value="Feminino">Feminino</option>
+                            <option value="Outro">Outro</option>
+                        </select>
                         <a style="border-radius: 15px; width: 300px; margin-top: 30px;" class="waves-effect waves-light btn-large">Criar Conta</a>
                     </form>
                 </center>
