@@ -19,7 +19,6 @@ function abrir(){
                     resultado+="<li><a onclick='' href='#' class=\"LinkMenu\">Minha Conta</a></li>"
                     resultado+="<li><a onclick='sair()' href='' class=\"LinkMenu\">Sair</a></li></ul>"
 
-
                     resultado2+="<li><a href=\"#\" class=\"LinkMenuM\">Teste</a></li>"
                     resultado2+="<li><a href=\"#\" class=\"LinkMenuM\">Teste</a></li></ul>"
     
