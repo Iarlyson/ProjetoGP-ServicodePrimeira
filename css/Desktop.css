@@ -9,7 +9,7 @@ body{
 .caixaForm{
     display: flex;
     justify-content: center;
-    margin-top: 150px;
+    margin: 2% 30% 0% 30%;
 }
 
 .caixaForm{
@@ -23,6 +23,40 @@ body{
     display: flex;
     justify-content: center;
 }
+
+.proposta{
+    text-align: center;
+    margin-top: 5%;
+    color: white;
+    font-size: 40px;
+}
+
+.meuButão {
+	box-shadow: 0px 10px 14px -7px #276873;
+	background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+	background-color:#599bb3;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:10px 28px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #3d768a;
+}
+
+.meuButão:hover {
+	background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+	background-color:#408c99;
+}
+.meuButão:active {
+	position:relative;
+	top:1px;
+}
+
+        
 
 #senhaLogin{
     border: none;

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../materialize/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="../materialize/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+
+    <link rel="stylesheet" href="../css/Desktop.css" type="text/css">
+    <title>Document</title>
+    <script type="text/javascript">
+        window.onload = function(){
+          firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          window.location.href = "../index.html";
+        } 
+      });
+        }
+        </script>
+    </script>
+</head>
+<body>
+    <div class="proposta"><b>Criar Proposta</b></div>
+    <div class="caixaForm">
+        <div>
+            <div><b>Descrição do Serviço</b></div>
+            <textarea></textarea>
+            </br>
+            </br>
+            <div><b>Valor do Serviço</b></div>
+            <input type="text">
+            </br>
+            </br>
+            <div><b>Métrica de Cobrança</b></div>
+
+            <!--AQUI ERA PRA TER UM CHECKBOX, MAS NÃO FUNCINA-->
+            <!--AQUI ERA PRA TER UM CHECKBOX, MAS NÃO FUNCINA-->
+
+            <input type="checkbox">Diária</br>
+            <input type="checkbox">Hora</br>
+            <input type="checkbox">Quinzena</br>
+            <input type="checkbox">Mensal</br>
+            <input type="checkbox">Por Serviço</br>
+
+            <!--AQUI ERA PRA TER UM CHECKBOX, MAS NÃO FUNCINA-->
+            <!--AQUI ERA PRA TER UM CHECKBOX, MAS NÃO FUNCINA-->
+
+            </br>
+            </br>
+            <a href="" class="meuButão" style="margin-right: 30px;">Voltar</a>
+            <a href="" class="meuButão">Postar</a>
+        </div>
+    </div>
+</body>
+</html>
