@@ -6108,7 +6108,7 @@ label {
   color: #d1d1d1;
 }
 ::placeholder {
-  color: #d1d1d1;
+  color: #000000;
 }
 
 /* Text inputs */
@@ -7128,9 +7128,9 @@ input[type=checkbox]:not(:disabled).tabbed:focus ~ .lever::before {
 
 /* Select Field
    ========================================================================== */
-select {
+/*select {
   display: none;
-}
+}*/
 
 select.browser-default {
   display: block;

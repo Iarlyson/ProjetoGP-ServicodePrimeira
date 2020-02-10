@@ -8,7 +8,7 @@
     storageBucket: "gp-servicodeprimeira.appspot.com",
     messagingSenderId: "534134505996",
     appId: "1:534134505996:web:02c270d36533c55344a429",
-    measurementId: "G-9RM2TT917R"
+    measurementId: "G-9RM2TT917R"  
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
