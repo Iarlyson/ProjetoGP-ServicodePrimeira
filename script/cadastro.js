@@ -47,7 +47,6 @@ function CadastroCliente(){
 function UserProfissional(){
 //Variaveis  
 
-var Profissional = true;
 var Nome = document.getElementById("nome");
 var CPF = document.getElementById("cpf");
 var EmailPuro = document.getElementById("email");
@@ -59,85 +58,84 @@ var Profissao = document.getElementById("Profissao");
 var Banco = document.getElementById("banco");
 var Agencia = document.getElementById("agencia");
 var Conta = document.getElementById("conta");
+var Profissional = "true";
 
 
 //Função para criar conta de Email e Senha no autenticador e para cadastrar dados no realtime
    // Cadastrar.addEventListener('click', function () {
       
-        if (Senha.value==ConfirmacaodeSenha.value) {
-          
+if (Senha.value==ConfirmacaodeSenha.value) {
+    var Minusculo = EmailPuro.value;
+    var Email = Minusculo.toLowerCase()
+    var chave = firebase.database().ref().child('Usuarios').push().key;
+    var Users = {
+        Nome : Nome.value,
+        Email : Email,
+        Profissional: Profissional,
+        CPF: CPF.value,
+        Chave: chave,
+        Endereço: Endereco.value,
+        Sexo: Sexo.value,
+        Profissao: Profissao.value,
+        Banco: Banco.value,
+        Agencia: Agencia.value,
+        Conta: Conta.value,
+    };
+      
+firebase
+.auth()
+.createUserWithEmailAndPassword(EmailPuro.value, Senha.value)
+.then(function() {
+    firebase.database().ref().child('Usuarios/'+chave).set(Users);
 
-            var Minusculo = EmailPuro.value;
-            var Email = Minusculo.toLowerCase()
-            var chave = firebase.database().ref().child('Usuarios').push().key;
-            var Users = {
-                nome : Nome.value,
-                profissional: Profissional.value,
-                email : Email,
-                cpf: CPF.value,
-                chave: chave,
-                endereço: Endereco.value,
-                sexo: Sexo.value,
-                profissao: Profissao.value,
-                banco: Banco.value,
-                agencia: Agencia.value,
-                conta: Conta.value,
-            };
-              
+alert(EmailPuro.value + " - Conta cadastrada com sucesso!");
 
-              firebase
-              .auth()
-              .createUserWithEmailAndPassword(EmailPuro.value, Senha.value)
-              .then(function() {
-            firebase.database().ref().child('Usuarios/'+chave).set(Users);
+setTimeout(function() {
+window.location.href ="../index.html"  ;
+}, 500);
 
-        alert(EmailPuro.value + " - Conta cadastrada com sucesso!");
-        Nome.value="";
-        CPF.value="";
-        EmailPuro.value="";
-        Senha.value="";
-        ConfirmacaodeSenha.value="";
-        Endereço.value="";
-        Sexo.value="";
-        Profissao.value="";
-        Banco.value="";
-        Agencia.value="";
-        Conta.value="";
-        
-       setTimeout(function() {
-        window.location.href ="../index.html"  ;
-        }, 1000);
 
-    })
+Nome.value="";
+CPF.value="";
+EmailPuro.value="";
+Senha.value="";
+ConfirmacaodeSenha.value="";
+Endereço.value="";
+Sexo.value="";
+Profissao.value="";
+Banco.value="";
+Agencia.value="";
+Conta.value="";
 
-    .catch(function (error) {
-        // Handle Errors here.
-        console.error(error.code);
-        console.error(error.message);
-        firebase.database().ref('Usuários').on('value', function (snapshot){
-            snapshot.forEach(function (item){ 
-        if(EmailPuro.value==item.val().Email){
-            alert("Esse email já foi usado em uma conta cadastrada no ACAM."); 
-        }
-        else{
-            alert("Falha ao cadastrar, falta dados a serem preenchidos!");
-        }
-        // ...
+})
 
-            })
-        }
-        )})
-}
-    else{
-        alert("Senhas incompatíveis!");
+
+.catch(function (error) {
+    // Handle Errors here.
+    console.error(error.code);
+    console.error(error.message);
+    firebase.database().ref('Usuários').on('value', function (snapshot){
+        snapshot.forEach(function (item){ 
+    if(EmailPuro.value==item.val().Email){
+        alert("Esse email já foi usado em uma conta cadastrada no ACAM."); 
     }
+    else{
+        alert("Falha ao cadastrar, falta dados a serem preenchidos!");
+    }
+    // ...
+
+        })
+    }
+    )})
+}
+else{
+    alert("Senhas imcompativeis!");
+}
 
 }
 
 function UserCliente(){
   
-    //Variaveis  
-    var Cliente = true;
     var Nome = document.getElementById("nome");
     var CPF = document.getElementById("cpf");
     var EmailPuro = document.getElementById("email");
@@ -145,69 +143,80 @@ function UserCliente(){
     var ConfirmacaodeSenha = document.getElementById("senhaconfirmar");
     var Endereco = document.getElementById("endereco");
     var Sexo = document.getElementById("sexo");
-    
- 
+    var Cliente = "true"
+
 
     
     //Função para criar conta de Email e Senha no autenticador e para cadastrar dados no realtime
        // Cadastrar.addEventListener('click', function () {
           
-            if (Senha.value==ConfirmacaodeSenha.value) {
-                var Minusculo = EmailPuro.value;
-                var Email = Minusculo.toLowerCase()
-                var chave = firebase.database().ref().child('Usuarios').push().key;
-                var Users = {
-                    nome : Nome.value,
-                    cliente: Cliente.value,
-                    email : Email,
-                    cpf: CPF.value,
-                    chave: chave,
-                    endereço: Endereco.value,
-                    sexo: Sexo.value,
-                  };
-                  
-            firebase
-            .auth()
-            .createUserWithEmailAndPassword(EmailPuro.value, Senha.value).then(function() {
-                alert("Entrei")
-                firebase.database().ref().child('Usuarios/'+chave).set(Users);
-                
-            alert(EmailPuro.value + " - Conta cadastrada com sucesso!");
-            Nome.value="";
-            CPF.value="";
-            EmailPuro.value="";
-            Senha.value="";
-            ConfirmacaodeSenha.value="";
-            Endereço.value="";
-            Sexo.value="";
+ 
 
-            setTimeout(function() {
-              window.location.href ="../index.html"  ;
-            }, 1000);
+//Função para criar conta de Email e Senha no autenticador e para cadastrar dados no realtime
+   // Cadastrar.addEventListener('click', function () {
+      
+    if (Senha.value==ConfirmacaodeSenha.value) {
+        var Minusculo = EmailPuro.value;
+        var Email = Minusculo.toLowerCase()
+        var chave = firebase.database().ref().child('Usuarios').push().key;
+        var Users = {
+            Cliente : Cliente,
+            Nome : Nome.value,
+            Email : Email,
+            CPF: CPF.value,
+            Chave: chave,
+            Endereço: Endereco.value,
+            Sexo: Sexo.value,
+          };
+          
+    firebase
+    .auth()
+    .createUserWithEmailAndPassword(EmailPuro.value, Senha.value)
+    .then(function() {
+        firebase.database().ref().child('Usuarios/'+chave).set(Users);
+
+    alert(EmailPuro.value + " - Conta cadastrada com sucesso!");
+    Nome.value="";
+    CPF.value="";
+    EmailPuro.value="";
+    Senha.value="";
+    ConfirmacaodeSenha.value="";
+    Endereço.value="";
+    Sexo.value="";
     
-        })
-    
-        .catch(function (error) {
-            // Handle Errors here.
-            console.error(error.code);
-            console.error(error.message);
-            firebase.database().ref('Usuários').on('value', function (snapshot){
-                snapshot.forEach(function (item){ 
-            if(EmailPuro.value==item.val().Email){
-                alert("Esse email já foi usado em uma conta cadastrada no ACAM."); 
-            }
-            else{
-                alert("Falha ao cadastrar, falta dados a serem preenchidos!");
-            }
-            // ...
-    
-                })
-            }
-            )})
+   setTimeout(function() {
+    window.location.href ="../index.html"  ;
+    }, 1000);
+    Nome.value="";
+    CPF.value="";
+    EmailPuro.value="";
+    Senha.value="";
+    ConfirmacaodeSenha.value="";
+    Endereço.value="";
+    Sexo.value="";
+
+})
+
+.catch(function (error) {
+    // Handle Errors here.
+    console.error(error.code);
+    console.error(error.message);
+    firebase.database().ref('Usuários').on('value', function (snapshot){
+        snapshot.forEach(function (item){ 
+    if(EmailPuro.value==item.val().Email){
+        alert("Esse email já foi usado em uma conta cadastrada no Serviço de Primeira."); 
     }
-        else{
-            alert("Senhas imcompativeis!");
-        }
+    else{
+        alert("Falha ao cadastrar, falta dados a serem preenchidos!");
+    }
+    // ...
 
+        })
+    }
+    )})
+}
+else{
+    alert("Senhas imcompativeis!");
 }
 
+}
