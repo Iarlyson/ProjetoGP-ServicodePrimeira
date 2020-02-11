@@ -1,0 +1,60 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../materialize/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="../materialize/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link rel="stylesheet" href="../css/Desktop.css" type="text/css">
+    <title>Crud Cliente</title>
+   <!--  <script type="text/javascript">
+        window.onload = function(){
+          firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          window.location.href = "../index.html";
+        } 
+      });
+        }
+        </script>  -->
+</head>
+<body id="main">
+    <header class="ContainerMenu">
+
+        <div class="LogoMenu">
+            <img src="../imagem/logowhite.png" alt="logo" width="200px">
+        </div>
+        
+        
+        <div id="OpcoesMenu">
+            
+    </header>
+    <div class="MenuMobile">
+        <div class="LogoMenu-Mobile">
+            <img src="
+        imagem/LogoMenor.png" alt="logo" width="200px">
+        </div>
+        
+        <div id="OpcoesMenu-Monile">
+            
+        </div>
+    </div>
+    <!-- aqui começa o Crud-->
+    <h4 class="center-align white-text">Editar Perfil</h4>";
+    <div class="container col l8" style="padding: 20px;">
+        <div class="white" style="margin-left: 17%; padding: 50px; border-radius: 15px; width: 600px;">
+            <div>
+                <form>
+                    <center><input type="text" name="nome" size="20" placeholder="Nome Completo:" id="nome">
+                        <input type="email" id="email" placeholder="E-mail:" >
+                        <input type="password" id="novasenhac" name="senha" size="16" min="8" max="16"placeholder="Nova Senha:" >
+                         <input type="password" id="novasenhaconfirmar" name="senha2" size="16" min="8" max="16"placeholder="Confirmar Nova Senha:" >
+                        <input type="text" id="endereco" name="endereço" placeholder="Endereço:" > <br>
+                        <label for="sexo">Sexo:</label><select id="sexo"><option value="Masculino">Masculino</option><option value="Feminino">Feminino</option><option value="Outro">Outro</option></select>
+                        </center>
+                        <a style="border-radius: 15px; margin: 30px 43% 20px" style="font-style:italic;" class="waves-effect waves-light btn-large">Salvar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    </body>
+</html>
