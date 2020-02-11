@@ -1,8 +1,51 @@
 function crudCliente(){
+    var user = firebase.auth().currentUser;
+    var email;
 
-    var main = document.getElementById("cadastro");
+    // Definindo o email do usuário logado
+    if (user != null) {
+        email = user.email;
+    }
+ 
+        
+    var resultado="<h3 class=\"center-align\">Crud dos meus Dados</h3>";
+    resultado+="<center><input type=\"text\" name=\"nome\" size=\"20\" placeholder=\"Nome Completo:\" id=\"nome\">";
+    resultado+="<input type=\"text\" id=\"cpf\" placeholder=\"CPF\": class=\"form-control cpf-mask\" min=\"11\" max=\"14\">";
+    resultado+="<input type=\"email\" id=\"email\" placeholder=\"E-mail:\" >";
+    resultado+="<input type=\"tel\" id=\"telefone\" placeholder=\"Telefone:\" >";
+    resultado+="<input type=\"text\" id=\"endereco\" name=\"endereço\" placeholder=\"Endereço:\" >";
+    resultado+="<input type=\"date\" id=\"nascimento\" name=\"Nascimento\" placeholder=\"Data de Nascimento:\" >";
+    resultado+="<label for=\"sexo\">Sexo:</label><select id=\"sexo\"><option value=\"Masculino\">Masculino</option><option value=\"Feminino\">Feminino</option><option value=\"Outro\">Outro</option></select>"
+    resultado+="<input type=\"submit\" id='update' value=\"Salvar Alterações\" onclick=\"atualizarConta()\" style=\"border-radius: 15px; width: 300px; margin-top: 30px;\" class=\"waves-effect waves-light btn-large\">";
+    resultado+="<input type=\"submit\" id='delete' value=\"Excluir Conta\" onclick=\"deleteConta()\" style=\"border-radius: 15px; width: 300px; margin-top: 30px;\" class=\"waves-effect waves-light btn-large\">";
+    resultado+="<input type=\"password\" id=\"novasenha\" name=\"senha\" size=\"16\" min=\"8\" max=\"16\"  placeholder=\"Nova Senha:\" >";
+    resultado+="<input type=\"password\" id=\"novasenhaconfirmar\" name=\"senha2\" size=\"16\" min=\"8\" max=\"16\"placeholder=\"Confirmar Nova Senha:\" >";
+    resultado+="<input type=\"password\" id=\"senhaatual\" name=\"senha2\" size=\"16\" min=\"8\" max=\"16\"placeholder=\"Senha Atual:\" >";
+    resultado+="<input type=\"submit\" id='delete' value=\"Mudarsenha\" onclick=\"atualizaSenha()\" style=\"border-radius: 15px; width: 300px; margin-top: 30px;\" class=\"waves-effect waves-light btn-large\">";
+    resultado+="</center>"
+    main.innerHTML = resultado; 
 
-    var resultado="<h3 class=\"center-align\">Cadastro Cliente</h3>";
+    //Preenche os dados do usuário
+    firebase.database().ref('Usuarios').on('value', function (snapshot){
+        snapshot.forEach(function (item) {
+            if (email === item.val().Email){
+                document.getElementById("nome").value = item.val().Nome;
+                document.getElementById("cpf").value = item.val().CPF;
+                document.getElementById("nascimento").value= item.val().Nascimento
+                document.getElementById("email").value = item.val().Email;
+                document.getElementById("endereco").value = item.val().Endereço;
+                document.getElementById("sexo").value = item.val().Sexo;
+                document.getElementById("telefone").value = item.val().Telefone;
+            }
+        });
+    });
+}
+
+function crudProfissional(){
+
+    var main = document.getElementById("crud");
+  
+    var resultado="<h3 class=\"center-align\">Crud dos meus Dados</h3>";
     resultado+="<center><input type=\"text\" name=\"nome\" size=\"20\" placeholder=\"Nome Completo:\" id=\"nome\">";
     resultado+="<input type=\"text\" id=\"cpf\" placeholder=\"CPF\": class=\"form-control cpf-mask\" min=\"11\" max=\"14\">";
     resultado+="<input type=\"email\" id=\"email\" placeholder=\"E-mail:\" >";
@@ -10,13 +53,151 @@ function crudCliente(){
     resultado+="<input type=\"password\" id=\"senha\" name=\"senha\" size=\"16\" min=\"8\" max=\"16\"  placeholder=\"Senha:\" >";
     resultado+="<input type=\"password\" id=\"senhaconfirmar\" name=\"senha2\" size=\"16\" min=\"8\" max=\"16\"placeholder=\"Confirmar Senha:\" >";
     resultado+="<input type=\"text\" id=\"endereco\" name=\"endereço\" placeholder=\"Endereço:\" >";
-    resultado+="<input type=\"date\" id=\"nascimento\" name=\"Nascimento\" placeholder=\"Data de Nascimento:\" >";
-    resultado+="<label for=\"sexo\">Sexo:</label><select id=\"sexo\"><option value=\"Masculino\">Masculino</option><option value=\"Feminino\">Feminino</option><option value=\"Outro\">Outro</option></select>"
-    resultado+="<input type=\"submit\" value=\"Criar conta\" id=\"cadastrar\" onclick=\"UserCliente()\" style=\"border-radius: 15px; width: 300px; margin-top: 30px;\" class=\"waves-effect waves-light btn-large\">";
+    resultado+="<label for=\"Profissão\">Profissão:</label><select id=\"Profissao\"><option value=\"Pedreiro\">Pedreiro</option><option value=\"Encanador\">Encanador</option><option value=\"Eletricista\">Eletricista</option><option value=\"Outro\">Outro</option></select>";
+    resultado+="<label for=\"sexo\">Sexo:</label><select id=\"sexo\"><option value=\"Masculino\">Masculino</option><option value=\"Feminino\">Feminino</option><option value=\"Outro\">Outro</option></select>";
+    resultado+="<h5>Dados Bancários</h5>";
+    resultado+=" <input type=\"text\" name=\"banco\" id=\"banco\" placeholder=\"Banco:\" >"
+    resultado+=" <input type=\"text\" name=\"agencia\" id=\"agencia\" placeholder=\"Agência:\" >"    
+    resultado+=" <input type=\"number\" name=\"conta\" id=\"conta\" placeholder=\"Conta:\" >"  
+    resultado+="<input type=\"submit\" id='update' value=\"Salvar Alterações\" style=\"border-radius: 15px; width: 300px; margin-top: 30px;\" class=\"waves-effect waves-light btn-large\">";
+    resultado+="<input type=\"submit\" id='delete' value=\"Excluir Conta\" style=\"border-radius: 15px; width: 300px; margin-top: 30px;\" class=\"waves-effect waves-light btn-large\">";
     resultado+="</center>"
-    main.innerHTML = resultado; 
+    main.innerHTML = resultado;
+  
 }
 
-function crudProfissional(){
+ function atualizarConta(){
 
+        var user = firebase.auth().currentUser;
+        var email;
+        // Definindo o email do usuário logado
+        if (user != null) {
+            email = user.email;
+        }
+        
+                firebase.database().ref('Usuarios').on('value', function (snapshot) {
+                    snapshot.forEach(function (item) {
+                        console.log("Email comparado: " + item.val().Email);
+                        if (email === item.val().Email) {
+
+                            //Definição das variáveis a serem utilizadas
+                            var key = item.val().Chave;
+                            var Nome = document.getElementById("nome").value;
+                            var CPF = document.getElementById("cpf").value;
+                            var Email = document.getElementById("email").value;
+                            var Nascimento = document.getElementById("nascimento").value;
+                            var Endereco = document.getElementById("endereco").value;
+                            var Sexo = document.getElementById("sexo").value;
+                            var Telefone = document.getElementById("telefone").value;
+                        
+                          
+                            if (Email !== item.val().Email) {
+                                console.log("Emails diferentes");
+                                //Atualizando email na autenticação
+                                atualizaEmail(key, Email);
+                            }
+
+                            //Atualizando nome no banco de dados
+                            if (item.val().Nome !== Nome && Nome !== "") {
+                                console.log("Nomes diferentes");
+                                // console.log(novoNome)
+                                firebase.database().ref('/Usuarios/' + key).update({
+                                    Nome: novoNome
+                                });
+                                console.log("Nome atualizado")
+                            }
+                        }
+                        });
+                    });
+
+       
+}
+
+// Funções auxiliares
+
+function atualizaEmail(key, novoEmail) {
+
+    console.log("entrou na função"+key);
+    console.log("Email para atualizar: "+novoEmail);
+
+    var user = firebase.auth().currentUser;
+
+    //Atualizando email no Authentication
+    user.updateEmail(novoEmail).then(function () {
+        //Atualizando email no banco de dados
+        firebase.database().ref('/Usuarios/'+key).update({
+            Email: novoEmail
+        });
+        // console.log("Email atualizado");
+    }).catch(function (error) {
+        window.alert("Email não pôde ser autualizado");
+    });
+
+}
+
+
+
+function atualizaSenha(){
+    var Senhanova = document.getElementById("novasenha");
+    var SenhanovaConfirmar = document.getElementById("novasenhaconfirmar");
+    
+    var Email = document.getElementById("email");
+    var Senha = document.getElementById("senhaatual");
+
+if(Senhanova.value==SenhanovaConfirmar.value){
+    
+    firebase
+    .auth()
+    .signInWithEmailAndPassword(Email.value, Senha.value)
+    .then(function(result) {
+        console.log(result);
+        var user = firebase.auth().currentUser;
+        user.updatePassword(Senhanova.value).then(function (){
+            alert("Senha Atualizada!")
+            Senhanova.value="";
+            SenhanovaConfirmar.value="";
+            Senha.value="";
+        }).catch(function (error) {
+            alert("Não foi possível atualizar a sua senha!");
+        });
+    })
+    .catch(function (error) {
+        console.error(error.code);
+        console.error(error.message);
+        alert("Sua Senha atual digitada errada!");
+});
+    
+}else{
+    alert("Senhas imcopativeis!");
+}
+}
+
+
+
+//Função para deltar conta no autenticação e no banco de dados
+function deleteConta() {
+
+    var user = firebase.auth().currentUser;
+    var email;
+
+    // Definindo o email do usuário logado
+    if (user != null) {
+        email = user.email;
+    }
+    var key;
+    firebase.database().ref('Usuarios').on('value', function (snapshot){
+    snapshot.forEach(function (item) {
+    
+            if (email === item.val().Email){
+                key = item.val().Chave; 
+
+            }
+        });
+    });
+
+    user.delete().then(function() {
+         firebase.database().ref('/Usuarios/'+key).remove();
+    }).catch(function (error) {
+        window.alert("Não foi possível remover a sua conta!");
+    });
 }

@@ -16,7 +16,7 @@ function abrir(){
                 //Função para menu Administrador
                 if(email===item.val().Email){
                     resultado+="<li><a href='index.html' class=\"LinkMenu\">Página Inicial</a></li>"
-                    resultado+="<li><a onclick='' href='#' class=\"LinkMenu\">Minha Conta</a></li>"
+                    resultado+="<li><a onclick='' href='../html/crudCliente.html' class=\"LinkMenu\">Minha Conta</a></li>"
                     resultado+="<li><a onclick='sair()' href='' class=\"LinkMenu\">Sair</a></li></ul>"
 
                     resultado2+="<li><a href=\"#\" class=\"LinkMenuM\">Teste</a></li>"

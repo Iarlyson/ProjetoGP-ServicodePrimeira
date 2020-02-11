@@ -52,6 +52,7 @@ function UserProfissional(){
 var Nome = document.getElementById("nome");
 var CPF = document.getElementById("cpf");
 var EmailPuro = document.getElementById("email");
+var Nascimento = document.getElementById("nascimento");
 var Telefone = document.getElementById("telefone");
 var Senha = document.getElementById("senha");
 var ConfirmacaodeSenha = document.getElementById("senhaconfirmar");
@@ -75,6 +76,7 @@ if (Senha.value==ConfirmacaodeSenha.value) {
         Nome : Nome.value,
         Email : Email,
         Telefone : Telefone.value,
+        Nascimento : Nascimento.value,
         Profissional: Profissional,
         CPF: CPF.value,
         Chave: chave,
@@ -102,6 +104,7 @@ window.location.href ="../index.html"  ;
 Nome.value="";
 CPF.value="";
 EmailPuro.value="";
+Nascimento.value="";
 Telefone.value="";
 Senha.value="";
 ConfirmacaodeSenha.value="";
@@ -144,6 +147,7 @@ function UserCliente(){
     var Nome = document.getElementById("nome");
     var CPF = document.getElementById("cpf");
     var EmailPuro = document.getElementById("email");
+    var Nascimento = document.getElementById("nascimento");
     var Senha = document.getElementById("senha");
     var ConfirmacaodeSenha = document.getElementById("senhaconfirmar");
     var Endereco = document.getElementById("endereco");
@@ -169,6 +173,7 @@ function UserCliente(){
             Cliente : Cliente,
             Nome : Nome.value,
             Email : Email,
+            Nascimento: Nascimento.value,
             Telefone : Telefone.value,
             CPF: CPF.value,
             Chave: chave,
@@ -191,6 +196,7 @@ function UserCliente(){
     Nome.value="";
     CPF.value="";
     EmailPuro.value="";
+    Nascimento.value="";
     Telefone.value="";
     Senha.value="";
     ConfirmacaodeSenha.value="";
