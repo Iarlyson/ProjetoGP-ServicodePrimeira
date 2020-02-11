@@ -10,6 +10,7 @@
         window.onload = function(){
           firebase.auth().onAuthStateChanged(function(user) {
             crudProfissional();
+            abrir();
         if (!user) {
           window.location.href = "login.html";
         } 

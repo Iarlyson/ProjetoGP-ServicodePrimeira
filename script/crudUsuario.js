@@ -7,7 +7,7 @@ function crudCliente(){
         email = user.email;
     }
  
-        
+    var main = document.getElementById("crud");
     var resultado="<h3 class=\"center-align\">Crud dos meus Dados</h3>";
     resultado+="<center><input type=\"text\" name=\"nome\" size=\"20\" placeholder=\"Nome Completo:\" id=\"nome\">";
     resultado+="<input type=\"text\" id=\"cpf\" placeholder=\"CPF\": class=\"form-control cpf-mask\" min=\"11\" max=\"14\">";

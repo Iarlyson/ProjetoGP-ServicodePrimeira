@@ -10,10 +10,12 @@
         window.onload = function(){
           firebase.auth().onAuthStateChanged(function(user) {
             crudCliente();
+            abrir();
         if (!user) {
           window.location.href = "login.html";
         } 
       });
+      
         }
         </script> 
 </head>
@@ -26,12 +28,14 @@
         
         
         <div id="OpcoesMenu">
+
+
+        </div>
             
     </header>
     <div class="MenuMobile">
         <div class="LogoMenu-Mobile">
-            <img src="
-        imagem/LogoMenor.png" alt="logo" width="200px">
+            <img src="imagem/LogoMenor.png" alt="logo" width="200px">
         </div>
         
         <div id="OpcoesMenu-Monile">
