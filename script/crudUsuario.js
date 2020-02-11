@@ -71,7 +71,7 @@ function crudProfissional(){
     resultado+="<input type=\"password\" id=\"novasenha\" name=\"senha\" size=\"16\" min=\"8\" max=\"16\"  placeholder=\"Nova Senha:\" >";
     resultado+="<input type=\"password\" id=\"novasenhaconfirmar\" name=\"senha2\" size=\"16\" min=\"8\" max=\"16\"placeholder=\"Confirmar Nova Senha:\" >";
     resultado+="<input type=\"password\" id=\"senhaatual\" name=\"senha2\" size=\"16\" min=\"8\" max=\"16\"placeholder=\"Senha Atual:\" >";
-    resultado+="<input type=\"submit\" id='delete' value=\"Mudarsenha\" onclick=\"atualizaSenha()\" style=\"border-radius: 15px; width: 300px; margin-top: 30px;\" class=\"waves-effect waves-light btn-large\">";
+    resultado+="<input type=\"submit\" id='delete' value=\"Mudar Senha\" onclick=\"atualizaSenha()\" style=\"border-radius: 15px; width: 300px; margin-top: 30px;\" class=\"waves-effect waves-light btn-large\">";
     resultado+="</center>"
     main.innerHTML = resultado; 
 
@@ -122,12 +122,12 @@ function crudProfissional(){
                             var Sexo = document.getElementById("sexo").value;
                             var Telefone = document.getElementById("telefone").value;
                             //Definição das variáveis exclusivas do lado profissional
-                            var Profissao = document.getElementById("Profissao");
-                            var Banco = document.getElementById("banco");
-                            var Agencia = document.getElementById("agencia");
-                            var Conta = document.getElementById("conta");
+                            var Profissao = document.getElementById("Profissao").value;
+                            var Banco = document.getElementById("banco").value;
+                            var Agencia = document.getElementById("agencia").value;
+                            var Conta = document.getElementById("conta").value;
                             
-                            if (item.val().Nome !== Nome && Nome !== "") {
+                            if (item.val().Nome !== Nome && Nome !== ""){
                                 
                                 var Email = document.getElementById("email");
                                 var Senha = document.getElementById("senhaatual");
@@ -364,7 +364,7 @@ function crudProfissional(){
                             });
                             
                             }
-                        }
+                    }
 
 
                         }
