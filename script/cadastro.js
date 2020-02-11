@@ -7,6 +7,7 @@ function CadastroProfissional(){
     resultado+="<center><input type=\"text\" name=\"nome\" size=\"20\" placeholder=\"Nome Completo:\" id=\"nome\">";
     resultado+="<input type=\"text\" id=\"cpf\" placeholder=\"CPF\": class=\"form-control cpf-mask\" min=\"11\" max=\"14\">";
     resultado+="<input type=\"email\" id=\"email\" placeholder=\"E-mail:\" >";
+    resultado+="<input type=\"tel\" id=\"telefone\" placeholder=\"Telefone:\" >";
     resultado+="<input type=\"password\" id=\"senha\" name=\"senha\" size=\"16\" min=\"8\" max=\"16\"  placeholder=\"Senha:\" >";
     resultado+="<input type=\"password\" id=\"senhaconfirmar\" name=\"senha2\" size=\"16\" min=\"8\" max=\"16\"placeholder=\"Confirmar Senha:\" >";
     resultado+="<input type=\"text\" id=\"endereco\" name=\"endereço\" placeholder=\"Endereço:\" >";
@@ -31,6 +32,7 @@ function CadastroCliente(){
   resultado+="<center><input type=\"text\" name=\"nome\" size=\"20\" placeholder=\"Nome Completo:\" id=\"nome\">";
   resultado+="<input type=\"text\" id=\"cpf\" placeholder=\"CPF\": class=\"form-control cpf-mask\" min=\"11\" max=\"14\">";
   resultado+="<input type=\"email\" id=\"email\" placeholder=\"E-mail:\" >";
+  resultado+="<input type=\"tel\" id=\"telefone\" placeholder=\"Telefone:\" >";
   resultado+="<input type=\"password\" id=\"senha\" name=\"senha\" size=\"16\" min=\"8\" max=\"16\"  placeholder=\"Senha:\" >";
   resultado+="<input type=\"password\" id=\"senhaconfirmar\" name=\"senha2\" size=\"16\" min=\"8\" max=\"16\"placeholder=\"Confirmar Senha:\" >";
   resultado+="<input type=\"text\" id=\"endereco\" name=\"endereço\" placeholder=\"Endereço:\" >";
@@ -50,6 +52,7 @@ function UserProfissional(){
 var Nome = document.getElementById("nome");
 var CPF = document.getElementById("cpf");
 var EmailPuro = document.getElementById("email");
+var Telefone = document.getElementById("telefone");
 var Senha = document.getElementById("senha");
 var ConfirmacaodeSenha = document.getElementById("senhaconfirmar");
 var Endereco = document.getElementById("endereco");
@@ -71,6 +74,7 @@ if (Senha.value==ConfirmacaodeSenha.value) {
     var Users = {
         Nome : Nome.value,
         Email : Email,
+        Telefone : Telefone.value,
         Profissional: Profissional,
         CPF: CPF.value,
         Chave: chave,
@@ -98,6 +102,7 @@ window.location.href ="../index.html"  ;
 Nome.value="";
 CPF.value="";
 EmailPuro.value="";
+Telefone.value="";
 Senha.value="";
 ConfirmacaodeSenha.value="";
 Endereço.value="";
@@ -143,6 +148,7 @@ function UserCliente(){
     var ConfirmacaodeSenha = document.getElementById("senhaconfirmar");
     var Endereco = document.getElementById("endereco");
     var Sexo = document.getElementById("sexo");
+    var Telefone = document.getElementById("telefone");
     var Cliente = "true"
 
 
@@ -163,6 +169,7 @@ function UserCliente(){
             Cliente : Cliente,
             Nome : Nome.value,
             Email : Email,
+            Telefone : Telefone.value,
             CPF: CPF.value,
             Chave: chave,
             Endereço: Endereco.value,
@@ -176,20 +183,15 @@ function UserCliente(){
         firebase.database().ref().child('Usuarios/'+chave).set(Users);
 
     alert(EmailPuro.value + " - Conta cadastrada com sucesso!");
-    Nome.value="";
-    CPF.value="";
-    EmailPuro.value="";
-    Senha.value="";
-    ConfirmacaodeSenha.value="";
-    Endereço.value="";
-    Sexo.value="";
     
    setTimeout(function() {
     window.location.href ="../index.html"  ;
-    }, 1000);
+    }, 500);
+
     Nome.value="";
     CPF.value="";
     EmailPuro.value="";
+    Telefone.value="";
     Senha.value="";
     ConfirmacaodeSenha.value="";
     Endereço.value="";
