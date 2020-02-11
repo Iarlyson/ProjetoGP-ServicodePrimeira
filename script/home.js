@@ -13,40 +13,25 @@ function abrir(){
 
         firebase.database().ref('Usuarios').on('value', function (snapshot) {
             snapshot.forEach(function (item) {
-                //Função para menu Administrador
-                if(email===item.val().Email){
+                //Função para menu cliente
+                if(item.val().Cliente=="true"){
+    
+    
+                   
+                }
+                if(item.val().Profissional=="true"){
                     resultado+="<li><a href='index.html' class=\"LinkMenu\">Página Inicial</a></li>"
-                    resultado+="<li><a onclick='' href='../html/crudCliente.html' class=\"LinkMenu\">Minha Conta</a></li>"
+                    resultado+="<li><a onclick='' href='../html/crudProfissional.html' class=\"LinkMenu\">Minha Conta</a></li>"
                     resultado+="<li><a onclick='sair()' href='' class=\"LinkMenu\">Sair</a></li></ul>"
 
                     resultado2+="<li><a href=\"#\" class=\"LinkMenuM\">Teste</a></li>"
                     resultado2+="<li><a href=\"#\" class=\"LinkMenuM\">Teste</a></li></ul>"
-    
-    
-                    if(item.val().Usuario=="Administrador"){
-                        resultado+="<li><a onclick='AprovacaoUsuario()' href='#' class=\"LinkMenu\">Aprovação de Usuários</a></li>"
-                        
-                    }
-                   
-    /*
-                    //Função para menu de ativo a reserva
-                    if (item.val().Ativo==="true"){
-                        opcaomenu+="<li class='dropdown-left'><a href='#'> Novas Reservas</a>";
-                        opcaomenu+= "<ul class='dropdown1'>";
-                        firebase.database().ref('TiposdeEspaco').on('value', function (snapshot) {
-                            snapshot.forEach(function (item) {
-                                console.log(item.val().TipoEspaco);
-                                opcaomenu += "<li><a onclick=\"preencheEspacos('"+item.val().Chave+"');closeMenu();\" href='#' class='link-left'>"+item.val().TipoEspaco+"</a></li>";
-                            });
-                        });
-                        opcaomenu += "</ul>";
-                        opcaomenu += "</li>";
-                    }*/
-                }
              
+                }
+
                 mainmenu.innerHTML = resultado;
                 mainmobile.innerHTML = resultado2;
-            
+                
             });
         }); 
             

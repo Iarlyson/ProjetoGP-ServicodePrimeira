@@ -43,27 +43,58 @@ function crudCliente(){
 }
 
 function crudProfissional(){
+    var user = firebase.auth().currentUser;
+    var email;
+
+    // Definindo o email do usuário logado
+    if (user != null) {
+        email = user.email;
+    }
+
 
     var main = document.getElementById("crud");
-  
     var resultado="<h3 class=\"center-align\">Crud dos meus Dados</h3>";
     resultado+="<center><input type=\"text\" name=\"nome\" size=\"20\" placeholder=\"Nome Completo:\" id=\"nome\">";
     resultado+="<input type=\"text\" id=\"cpf\" placeholder=\"CPF\": class=\"form-control cpf-mask\" min=\"11\" max=\"14\">";
     resultado+="<input type=\"email\" id=\"email\" placeholder=\"E-mail:\" >";
     resultado+="<input type=\"tel\" id=\"telefone\" placeholder=\"Telefone:\" >";
-    resultado+="<input type=\"password\" id=\"senha\" name=\"senha\" size=\"16\" min=\"8\" max=\"16\"  placeholder=\"Senha:\" >";
-    resultado+="<input type=\"password\" id=\"senhaconfirmar\" name=\"senha2\" size=\"16\" min=\"8\" max=\"16\"placeholder=\"Confirmar Senha:\" >";
     resultado+="<input type=\"text\" id=\"endereco\" name=\"endereço\" placeholder=\"Endereço:\" >";
+    resultado+="<input type=\"date\" id=\"nascimento\" name=\"Nascimento\" placeholder=\"Data de Nascimento:\" >";
+    resultado+="<label for=\"sexo\">Sexo:</label><select id=\"sexo\"><option value=\"Masculino\">Masculino</option><option value=\"Feminino\">Feminino</option><option value=\"Outro\">Outro</option></select>"
     resultado+="<label for=\"Profissão\">Profissão:</label><select id=\"Profissao\"><option value=\"Pedreiro\">Pedreiro</option><option value=\"Encanador\">Encanador</option><option value=\"Eletricista\">Eletricista</option><option value=\"Outro\">Outro</option></select>";
-    resultado+="<label for=\"sexo\">Sexo:</label><select id=\"sexo\"><option value=\"Masculino\">Masculino</option><option value=\"Feminino\">Feminino</option><option value=\"Outro\">Outro</option></select>";
-    resultado+="<h5>Dados Bancários</h5>";
     resultado+=" <input type=\"text\" name=\"banco\" id=\"banco\" placeholder=\"Banco:\" >"
     resultado+=" <input type=\"text\" name=\"agencia\" id=\"agencia\" placeholder=\"Agência:\" >"    
-    resultado+=" <input type=\"number\" name=\"conta\" id=\"conta\" placeholder=\"Conta:\" >"  
-    resultado+="<input type=\"submit\" id='update' value=\"Salvar Alterações\" style=\"border-radius: 15px; width: 300px; margin-top: 30px;\" class=\"waves-effect waves-light btn-large\">";
-    resultado+="<input type=\"submit\" id='delete' value=\"Excluir Conta\" style=\"border-radius: 15px; width: 300px; margin-top: 30px;\" class=\"waves-effect waves-light btn-large\">";
+    resultado+=" <input type=\"number\" name=\"conta\" id=\"conta\" placeholder=\"Conta:\" >"
+    resultado+="<input type=\"password\" id=\"senhaatual\" name=\"senha2\" size=\"16\" min=\"8\" max=\"16\"placeholder=\"Senha Atual:\" >";
+    resultado+="<input type=\"submit\" id='update' value=\"Salvar Alterações\" onclick=\"atualizarConta()\" style=\"border-radius: 15px; width: 300px; margin-top: 30px;\" class=\"waves-effect waves-light btn-large\">";
+    resultado+="<input type=\"submit\" id='delete' value=\"Excluir Conta\" onclick=\"deleteConta()\" style=\"border-radius: 15px; width: 300px; margin-top: 30px;\" class=\"waves-effect waves-light btn-large\">";
+    resultado+="<input type=\"password\" id=\"novasenha\" name=\"senha\" size=\"16\" min=\"8\" max=\"16\"  placeholder=\"Nova Senha:\" >";
+    resultado+="<input type=\"password\" id=\"novasenhaconfirmar\" name=\"senha2\" size=\"16\" min=\"8\" max=\"16\"placeholder=\"Confirmar Nova Senha:\" >";
+    resultado+="<input type=\"password\" id=\"senhaatual\" name=\"senha2\" size=\"16\" min=\"8\" max=\"16\"placeholder=\"Senha Atual:\" >";
+    resultado+="<input type=\"submit\" id='delete' value=\"Mudarsenha\" onclick=\"atualizaSenha()\" style=\"border-radius: 15px; width: 300px; margin-top: 30px;\" class=\"waves-effect waves-light btn-large\">";
     resultado+="</center>"
-    main.innerHTML = resultado;
+    main.innerHTML = resultado; 
+
+    //Preenche os dados do usuário
+    firebase.database().ref('Usuarios').on('value', function (snapshot){
+        snapshot.forEach(function (item) {
+
+         if (email == item.val().Email){
+                document.getElementById("nome").value = item.val().Nome;
+                document.getElementById("cpf").value = item.val().CPF;
+                document.getElementById("nascimento").value= item.val().Nascimento
+                document.getElementById("email").value = item.val().Email;
+                document.getElementById("endereco").value = item.val().Endereco;
+                document.getElementById("sexo").value = item.val().Sexo;
+                document.getElementById("telefone").value = item.val().Telefone;
+                document.getElementById("Profissao").value = item.val().Profissao;
+                document.getElementById("banco").value = item.val().Banco;
+                document.getElementById("agencia").value = item.val().Agencia;
+                document.getElementById("conta").value = item.val().Conta;
+            }
+        });
+    });
+      
   
 }
 
@@ -81,7 +112,7 @@ function crudProfissional(){
                         console.log("Email comparado: " + item.val().Email);
                         if (email === item.val().Email) {
 
-                            //Definição das variáveis a serem utilizadas
+                            //Definição das variáveis do lado cliente e profissional
                             var key = item.val().Chave;
                             var Nome = document.getElementById("nome").value;
                             var CPF = document.getElementById("cpf").value;
@@ -90,7 +121,7 @@ function crudProfissional(){
                             var Endereco = document.getElementById("endereco").value;
                             var Sexo = document.getElementById("sexo").value;
                             var Telefone = document.getElementById("telefone").value;
-                        
+                            //Definição das variáveis exclusivas do lado profissional
                             var Profissao = document.getElementById("Profissao");
                             var Banco = document.getElementById("banco");
                             var Agencia = document.getElementById("agencia");

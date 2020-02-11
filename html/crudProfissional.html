@@ -8,8 +8,8 @@
     <title>Crud Profissional</title>
     <script type="text/javascript">
         window.onload = function(){
-            crudProfissional();
           firebase.auth().onAuthStateChanged(function(user) {
+            crudProfissional();
         if (!user) {
           window.location.href = "login.html";
         } 
