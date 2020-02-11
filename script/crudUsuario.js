@@ -16,6 +16,7 @@ function crudCliente(){
     resultado+="<input type=\"text\" id=\"endereco\" name=\"endereço\" placeholder=\"Endereço:\" >";
     resultado+="<input type=\"date\" id=\"nascimento\" name=\"Nascimento\" placeholder=\"Data de Nascimento:\" >";
     resultado+="<label for=\"sexo\">Sexo:</label><select id=\"sexo\"><option value=\"Masculino\">Masculino</option><option value=\"Feminino\">Feminino</option><option value=\"Outro\">Outro</option></select>"
+    resultado+="<input type=\"password\" id=\"senhaatual\" name=\"senha2\" size=\"16\" min=\"8\" max=\"16\"placeholder=\"Senha Atual:\" >";
     resultado+="<input type=\"submit\" id='update' value=\"Salvar Alterações\" onclick=\"atualizarConta()\" style=\"border-radius: 15px; width: 300px; margin-top: 30px;\" class=\"waves-effect waves-light btn-large\">";
     resultado+="<input type=\"submit\" id='delete' value=\"Excluir Conta\" onclick=\"deleteConta()\" style=\"border-radius: 15px; width: 300px; margin-top: 30px;\" class=\"waves-effect waves-light btn-large\">";
     resultado+="<input type=\"password\" id=\"novasenha\" name=\"senha\" size=\"16\" min=\"8\" max=\"16\"  placeholder=\"Nova Senha:\" >";
@@ -33,7 +34,7 @@ function crudCliente(){
                 document.getElementById("cpf").value = item.val().CPF;
                 document.getElementById("nascimento").value= item.val().Nascimento
                 document.getElementById("email").value = item.val().Email;
-                document.getElementById("endereco").value = item.val().Endereço;
+                document.getElementById("endereco").value = item.val().Endereco;
                 document.getElementById("sexo").value = item.val().Sexo;
                 document.getElementById("telefone").value = item.val().Telefone;
             }
@@ -90,22 +91,251 @@ function crudProfissional(){
                             var Sexo = document.getElementById("sexo").value;
                             var Telefone = document.getElementById("telefone").value;
                         
-                          
+                            var Profissao = document.getElementById("Profissao");
+                            var Banco = document.getElementById("banco");
+                            var Agencia = document.getElementById("agencia");
+                            var Conta = document.getElementById("conta");
+                            
+                            if (item.val().Nome !== Nome && Nome !== "") {
+                                
+                                var Email = document.getElementById("email");
+                                var Senha = document.getElementById("senhaatual");
+                            
+                                firebase
+                                .auth()
+                                .signInWithEmailAndPassword(Email.value, Senha.value)
+                                .then(function(result) {
+                                    firebase.database().ref('/Usuarios/' + key).update({
+                                        Nome: Nome
+                                    });
+                                    alert("Nome Atualizado");
+                                })
+                                .catch(function (error) {
+                                    console.error(error.code);
+                                    console.error(error.message);
+                                    alert("Sua Senha atual digitada errada!");
+                            });
+                            
+                            }
+
+
+                            if (item.val().CPF !== CPF && CPF !== "") {
+                                
+                                var Email = document.getElementById("email");
+                                var Senha = document.getElementById("senhaatual");
+                            
+                                firebase
+                                .auth()
+                                .signInWithEmailAndPassword(Email.value, Senha.value)
+                                .then(function(result) {
+                                    firebase.database().ref('/Usuarios/' + key).update({
+                                        CPF: CPF
+                                    });
+                                    alert("CPF Atualizado");
+                                })
+                                .catch(function (error) {
+                                    console.error(error.code);
+                                    console.error(error.message);
+                                    alert("Sua Senha atual digitada errada!");
+                            });
+                            
+                            }
+
                             if (Email !== item.val().Email) {
                                 console.log("Emails diferentes");
                                 //Atualizando email na autenticação
-                                atualizaEmail(key, Email);
+                                var EmailAntigo = item.val().Email;
+                                atualizaEmail(key, EmailAntigo, Email);
                             }
 
-                            //Atualizando nome no banco de dados
-                            if (item.val().Nome !== Nome && Nome !== "") {
-                                console.log("Nomes diferentes");
-                                // console.log(novoNome)
-                                firebase.database().ref('/Usuarios/' + key).update({
-                                    Nome: novoNome
-                                });
-                                console.log("Nome atualizado")
+
+
+                            if (item.val().Nascimento !== Nascimento && Nascimento !== "") {
+                                
+                                var Email = document.getElementById("email");
+                                var Senha = document.getElementById("senhaatual");
+                            
+                                firebase
+                                .auth()
+                                .signInWithEmailAndPassword(Email.value, Senha.value)
+                                .then(function(result) {
+                                    firebase.database().ref('/Usuarios/' + key).update({
+                                        Nascimento: Nascimento
+                                        
+                                    });
+                                    alert("Data de Nascimento Atualizado");
+                                })
+                                .catch(function (error) {
+                                    console.error(error.code);
+                                    console.error(error.message);
+                                    alert("Sua Senha atual digitada errada!");
+                            });
+                            
                             }
+
+
+
+                            
+                            if (item.val().Endereco !== Endereco && Endereco !== "") {
+                                
+                                var Email = document.getElementById("email");
+                                var Senha = document.getElementById("senhaatual");
+                            
+                                firebase
+                                .auth()
+                                .signInWithEmailAndPassword(Email.value, Senha.value)
+                                .then(function(result) {
+                                    firebase.database().ref('/Usuarios/' + key).update({
+                                        Endereco: Endereco
+                                    });
+                                    alert("Endereço Atualizado");
+                                })
+                                .catch(function (error) {
+                                    console.error(error.code);
+                                    console.error(error.message);
+                                    alert("Sua Senha atual digitada errada!");
+                            });
+                            
+                            }
+
+                            
+                            if (item.val().Sexo !== Sexo && Sexo !== "") {
+                                
+                                var Email = document.getElementById("email");
+                                var Senha = document.getElementById("senhaatual");
+                            
+                                firebase
+                                .auth()
+                                .signInWithEmailAndPassword(Email.value, Senha.value)
+                                .then(function(result) {
+                                    firebase.database().ref('/Usuarios/' + key).update({
+                                        Sexo: Sexo
+                                    });
+                                    alert("Sexo Atualizado");
+                                })
+                                .catch(function (error) {
+                                    console.error(error.code);
+                                    console.error(error.message);
+                                    alert("Sua Senha atual digitada errada!");
+                            });
+                            
+                            }
+
+                            
+                            if (item.val().Telefone !== Telefone && Telefone !== "") {
+                                
+                                var Email = document.getElementById("email");
+                                var Senha = document.getElementById("senhaatual");
+                            
+                                firebase
+                                .auth()
+                                .signInWithEmailAndPassword(Email.value, Senha.value)
+                                .then(function(result) {
+                                    firebase.database().ref('/Usuarios/' + key).update({
+                                        Telefone: Telefone
+                                    });
+                                    alert("Telefone Atualizado");
+                                })
+                                .catch(function (error) {
+                                    console.error(error.code);
+                                    console.error(error.message);
+                                    alert("Sua Senha atual digitada errada!");
+                            });
+                            
+                            }
+                        if(item.val().Profissional == "true"){
+                            if (item.val().Profissao !== Profissao) {
+                                
+                                var Email = document.getElementById("email");
+                                var Senha = document.getElementById("senhaatual");
+                            
+                                firebase
+                                .auth()
+                                .signInWithEmailAndPassword(Email.value, Senha.value)
+                                .then(function(result) {
+                                    firebase.database().ref('/Usuarios/' + key).update({
+                                        Profissao: Profissao
+                                    });
+                                    alert("Profissao Atualizada");
+                                })
+                                .catch(function (error) {
+                                    console.error(error.code);
+                                    console.error(error.message);
+                                    alert("Sua Senha atual digitada errada!");
+                            });
+                            
+                            }
+
+                            
+                            if (item.val().Banco !== Banco && Banco !== "") {
+                                
+                                var Email = document.getElementById("email");
+                                var Senha = document.getElementById("senhaatual");
+                            
+                                firebase
+                                .auth()
+                                .signInWithEmailAndPassword(Email.value, Senha.value)
+                                .then(function(result) {
+                                    firebase.database().ref('/Usuarios/' + key).update({
+                                        Banco: Banco
+                                    });
+                                    alert("Banco Atualizado");
+                                })
+                                .catch(function (error) {
+                                    console.error(error.code);
+                                    console.error(error.message);
+                                    alert("Sua Senha atual digitada errada!");
+                            });
+                            
+                            }
+
+                            if (item.val().Agencia !== Agencia && Agencia !== "") {
+                                
+                                var Email = document.getElementById("email");
+                                var Senha = document.getElementById("senhaatual");
+                            
+                                firebase
+                                .auth()
+                                .signInWithEmailAndPassword(Email.value, Senha.value)
+                                .then(function(result) {
+                                    firebase.database().ref('/Usuarios/' + key).update({
+                                        Agencia: Agencia
+                                    });
+                                    alert("Agencia Atualizado");
+                                })
+                                .catch(function (error) {
+                                    console.error(error.code);
+                                    console.error(error.message);
+                                    alert("Sua Senha atual digitada errada!");
+                            });
+                            
+                            }
+
+
+                            if (item.val().Conta !== Conta && Conta !== "") {
+                                
+                                var Email = document.getElementById("email");
+                                var Senha = document.getElementById("senhaatual");
+                            
+                                firebase
+                                .auth()
+                                .signInWithEmailAndPassword(Email.value, Senha.value)
+                                .then(function(result) {
+                                    firebase.database().ref('/Usuarios/' + key).update({
+                                        Conta: Conta
+                                    });
+                                    alert("Conta Atualizado");
+                                })
+                                .catch(function (error) {
+                                    console.error(error.code);
+                                    console.error(error.message);
+                                    alert("Sua Senha atual digitada errada!");
+                            });
+                            
+                            }
+                        }
+
+
                         }
                         });
                     });
@@ -115,23 +345,34 @@ function crudProfissional(){
 
 // Funções auxiliares
 
-function atualizaEmail(key, novoEmail) {
-
+function atualizaEmail(key, emailantigo, novoEmail) {
+    var Email = novoEmail.toLowerCase()
     console.log("entrou na função"+key);
     console.log("Email para atualizar: "+novoEmail);
-
+    var Senha = document.getElementById("senhaatual");
+    firebase
+    .auth()
+    .signInWithEmailAndPassword(emailantigo, Senha.value)
+    .then(function(result) {
     var user = firebase.auth().currentUser;
 
     //Atualizando email no Authentication
-    user.updateEmail(novoEmail).then(function () {
+    user.updateEmail(Email).then(function () {
         //Atualizando email no banco de dados
         firebase.database().ref('/Usuarios/'+key).update({
-            Email: novoEmail
+            Email: Email
+            
         });
-        // console.log("Email atualizado");
+        alert("Email atualizado!");
     }).catch(function (error) {
         window.alert("Email não pôde ser autualizado");
     });
+})
+.catch(function (error) {
+    console.error(error.code);
+    console.error(error.message);
+    alert("Sua Senha atual digitada errada!");
+});
 
 }
 
@@ -185,6 +426,12 @@ function deleteConta() {
         email = user.email;
     }
     var key;
+
+    var Senha = document.getElementById("senhaatual");
+    firebase
+    .auth()
+    .signInWithEmailAndPassword(email, Senha.value)
+    .then(function(result) {
     firebase.database().ref('Usuarios').on('value', function (snapshot){
     snapshot.forEach(function (item) {
     
@@ -200,4 +447,10 @@ function deleteConta() {
     }).catch(function (error) {
         window.alert("Não foi possível remover a sua conta!");
     });
+})
+.catch(function (error) {
+    console.error(error.code);
+    console.error(error.message);
+    alert("Sua Senha atual digitada errada!");
+});
 }

@@ -80,7 +80,7 @@ if (Senha.value==ConfirmacaodeSenha.value) {
         Profissional: Profissional,
         CPF: CPF.value,
         Chave: chave,
-        Endereço: Endereco.value,
+        Endereco: Endereco.value,
         Sexo: Sexo.value,
         Profissao: Profissao.value,
         Banco: Banco.value,
@@ -108,7 +108,7 @@ Nascimento.value="";
 Telefone.value="";
 Senha.value="";
 ConfirmacaodeSenha.value="";
-Endereço.value="";
+Endereco.value="";
 Sexo.value="";
 Profissao.value="";
 Banco.value="";
@@ -177,7 +177,7 @@ function UserCliente(){
             Telefone : Telefone.value,
             CPF: CPF.value,
             Chave: chave,
-            Endereço: Endereco.value,
+            Endereco: Endereco.value,
             Sexo: Sexo.value,
           };
           
@@ -200,7 +200,7 @@ function UserCliente(){
     Telefone.value="";
     Senha.value="";
     ConfirmacaodeSenha.value="";
-    Endereço.value="";
+    Endereco.value="";
     Sexo.value="";
 
 })
