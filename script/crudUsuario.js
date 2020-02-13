@@ -13,7 +13,10 @@ function crudCliente(){
     resultado+="<input type=\"text\" id=\"cpf\" placeholder=\"CPF\": class=\"form-control cpf-mask\" min=\"11\" max=\"14\">";
     resultado+="<input type=\"email\" id=\"email\" placeholder=\"E-mail:\" >";
     resultado+="<input type=\"tel\" id=\"telefone\" placeholder=\"Telefone:\" >";
-    resultado+="<input type=\"text\" id=\"endereco\" name=\"endereço\" placeholder=\"Endereço:\" >";
+    resultado+="<label for=\"cidade\">Cidade:</label><select id=\"cidade\"><option value=\"Cajazeiras\">Cajazeiras</option></select>";
+    resultado+="<input type=\"text\" id=\"bairrp\" placeholder=\"Bairro:\" >";
+    resultado+="<input type=\"text\" id=\"rua\" placeholder=\"Rua:\" >";
+    resultado+="<input type=\"number\" id=\"numero\" placeholder=\"Numero:\" >";
     resultado+="<input type=\"date\" id=\"nascimento\" name=\"Nascimento\" placeholder=\"Data de Nascimento:\" >";
     resultado+="<label for=\"sexo\">Sexo:</label><select id=\"sexo\"><option value=\"Masculino\">Masculino</option><option value=\"Feminino\">Feminino</option><option value=\"Outro\">Outro</option></select>"
     resultado+="<input type=\"password\" id=\"senhaatual\" name=\"senha2\" size=\"16\" min=\"8\" max=\"16\"placeholder=\"Senha Atual:\" >";
@@ -58,7 +61,10 @@ function crudProfissional(){
     resultado+="<input type=\"text\" id=\"cpf\" placeholder=\"CPF\": class=\"form-control cpf-mask\" min=\"11\" max=\"14\">";
     resultado+="<input type=\"email\" id=\"email\" placeholder=\"E-mail:\" >";
     resultado+="<input type=\"tel\" id=\"telefone\" placeholder=\"Telefone:\" >";
-    resultado+="<input type=\"text\" id=\"endereco\" name=\"endereço\" placeholder=\"Endereço:\" >";
+    resultado+="<label for=\"cidade\">Cidade:</label><select id=\"cidade\"><option value=\"Cajazeiras\">Cajazeiras</option></select>";
+    resultado+="<input type=\"text\" id=\"bairrp\" placeholder=\"Bairro:\" >";
+    resultado+="<input type=\"text\" id=\"rua\" placeholder=\"Rua:\" >";
+    resultado+="<input type=\"number\" id=\"numero\" placeholder=\"Numero:\" >";
     resultado+="<input type=\"date\" id=\"nascimento\" name=\"Nascimento\" placeholder=\"Data de Nascimento:\" >";
     resultado+="<label for=\"sexo\">Sexo:</label><select id=\"sexo\"><option value=\"Masculino\">Masculino</option><option value=\"Feminino\">Feminino</option><option value=\"Outro\">Outro</option></select>"
     resultado+="<label for=\"Profissão\">Profissão:</label><select id=\"Profissao\"><option value=\"Pedreiro\">Pedreiro</option><option value=\"Encanador\">Encanador</option><option value=\"Eletricista\">Eletricista</option><option value=\"Outro\">Outro</option></select>";
