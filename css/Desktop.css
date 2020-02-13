@@ -47,6 +47,14 @@ body{
     font-size: 40px;
 }
 
+/*crud*/
+#crud {
+    padding: 30px;
+    border-radius: 15px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
 .meuButão {
 	box-shadow: 0px 10px 14px -7px #276873;
 	background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
@@ -131,7 +139,8 @@ body{
 }
 
 .logoPrincipal img{
-    width: 350px    ;
+    width: 100px;
+    height: 120px;
 }
 .esqueceuSenha{
     display: flex;
@@ -160,7 +169,7 @@ body{
     margin-top: 40px;
 }
 
-.opcoes{
+.Opcoes{
     background-color:white;
     padding: 20px;
     border-radius: 15px;

@@ -17,8 +17,8 @@ function crudCliente(){
     resultado+="<input type=\"date\" id=\"nascimento\" name=\"Nascimento\" placeholder=\"Data de Nascimento:\" >";
     resultado+="<label for=\"sexo\">Sexo:</label><select id=\"sexo\"><option value=\"Masculino\">Masculino</option><option value=\"Feminino\">Feminino</option><option value=\"Outro\">Outro</option></select>"
     resultado+="<input type=\"password\" id=\"senhaatual\" name=\"senha2\" size=\"16\" min=\"8\" max=\"16\"placeholder=\"Senha Atual:\" >";
-    resultado+="<input type=\"submit\" id='update' value=\"Salvar Alterações\" onclick=\"atualizarConta()\" style=\"border-radius: 15px; width: 300px; margin-top: 30px;\" class=\"waves-effect waves-light btn-large\">";
-    resultado+="<input type=\"submit\" id='delete' value=\"Excluir Conta\" onclick=\"deleteConta()\" style=\"border-radius: 15px; width: 300px; margin-top: 30px;\" class=\"waves-effect waves-light btn-large\">";
+    resultado+="<input type=\"submit\" id='update' value=\"Salvar Alterações\" onclick=\"atualizarConta()\" style=\"border-radius: 15px; width: 300px; margin-right: 10px; margin-top: 30px;\" class=\"waves-effect waves-light btn-small\">";
+    resultado+="<input type=\"submit\" id='delete' value=\"Excluir Conta\" onclick=\"deleteConta()\" style=\"border-radius: 15px; width: 300px; margin-top: 30px;\" class=\"waves-effect waves-light btn-small\">";
     resultado+="<input type=\"password\" id=\"novasenha\" name=\"senha\" size=\"16\" min=\"8\" max=\"16\"  placeholder=\"Nova Senha:\" >";
     resultado+="<input type=\"password\" id=\"novasenhaconfirmar\" name=\"senha2\" size=\"16\" min=\"8\" max=\"16\"placeholder=\"Confirmar Nova Senha:\" >";
     resultado+="<input type=\"password\" id=\"senhaatual\" name=\"senha2\" size=\"16\" min=\"8\" max=\"16\"placeholder=\"Senha Atual:\" >";
@@ -66,8 +66,8 @@ function crudProfissional(){
     resultado+=" <input type=\"text\" name=\"agencia\" id=\"agencia\" placeholder=\"Agência:\" >"    
     resultado+=" <input type=\"number\" name=\"conta\" id=\"conta\" placeholder=\"Conta:\" >"
     resultado+="<input type=\"password\" id=\"senhaatual\" name=\"senha2\" size=\"16\" min=\"8\" max=\"16\"placeholder=\"Senha Atual:\" >";
-    resultado+="<input type=\"submit\" id='update' value=\"Salvar Alterações\" onclick=\"atualizarConta()\" style=\"border-radius: 15px; width: 300px; margin-top: 30px;\" class=\"waves-effect waves-light btn-large\">";
-    resultado+="<input type=\"submit\" id='delete' value=\"Excluir Conta\" onclick=\"deleteConta()\" style=\"border-radius: 15px; width: 300px; margin-top: 30px;\" class=\"waves-effect waves-light btn-large\">";
+    resultado+="<input type=\"submit\" id='update' value=\"Salvar Alterações\" onclick=\"atualizarConta()\" style=\"border-radius: 15px; width: 300px; margin-top: 30px;\ margin-right: 10px\" class=\"waves-effect waves-light btn-small\">";
+    resultado+="<input type=\"submit\" id='delete' value=\"Excluir Conta\" onclick=\"deleteConta()\" style=\"border-radius: 15px; width: 300px; margin-top: 30px;\" class=\"waves-effect waves-light btn-small\">";
     resultado+="<input type=\"password\" id=\"novasenha\" name=\"senha\" size=\"16\" min=\"8\" max=\"16\"  placeholder=\"Nova Senha:\" >";
     resultado+="<input type=\"password\" id=\"novasenhaconfirmar\" name=\"senha2\" size=\"16\" min=\"8\" max=\"16\"placeholder=\"Confirmar Nova Senha:\" >";
     resultado+="<input type=\"password\" id=\"senhaatual\" name=\"senha2\" size=\"16\" min=\"8\" max=\"16\"placeholder=\"Senha Atual:\" >";

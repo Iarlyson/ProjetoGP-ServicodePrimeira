@@ -11,7 +11,10 @@ function CadastroProfissional(){
     resultado+="<input type=\"tel\" id=\"telefone\" placeholder=\"Telefone:\" >";
     resultado+="<input type=\"password\" id=\"senha\" name=\"senha\" size=\"16\" min=\"8\" max=\"16\"  placeholder=\"Senha:\" >";
     resultado+="<input type=\"password\" id=\"senhaconfirmar\" name=\"senha2\" size=\"16\" min=\"8\" max=\"16\"placeholder=\"Confirmar Senha:\" >";
-    resultado+="<input type=\"text\" id=\"endereco\" name=\"endereço\" placeholder=\"Endereço:\" >";
+    resultado+="<label for=\"cidade\">Cidade:</label><select id=\"cidade\"><option value=\"Cajazeiras\">Cajazeiras</option></select> ";
+    resultado+="<input type=\"text\" id=\"bairro\" name=\"bairro\" placeholder=\"Bairro:\" size=\"16\" > ";
+    resultado+="<input type=\"text\" id=\"rua\" name=\"rua\" placeholder=\"Rua:\" size=\"16\" > ";
+    resultado+="<input type=\"number\" id=\"numerocasa\" name=\"numero\" placeholder=\"Numero:\" size=\"4\" > ";
     resultado+="<label for=\"Profissão\">Profissão:</label><select id=\"Profissao\"><option value=\"Pedreiro\">Pedreiro</option><option value=\"Encanador\">Encanador</option><option value=\"Eletricista\">Eletricista</option><option value=\"Outro\">Outro</option></select>";
     resultado+="<label for=\"sexo\">Sexo:</label><select id=\"sexo\"><option value=\"Masculino\">Masculino</option><option value=\"Feminino\">Feminino</option><option value=\"Outro\">Outro</option></select>";
     resultado+="<h5>Dados Bancários</h5>";
@@ -36,7 +39,9 @@ function CadastroCliente(){
   resultado+="<input type=\"tel\" id=\"telefone\" placeholder=\"Telefone:\" >";
   resultado+="<input type=\"password\" id=\"senha\" name=\"senha\" size=\"16\" min=\"8\" max=\"16\"  placeholder=\"Senha:\" >";
   resultado+="<input type=\"password\" id=\"senhaconfirmar\" name=\"senha2\" size=\"16\" min=\"8\" max=\"16\"placeholder=\"Confirmar Senha:\" >";
-  resultado+="<input type=\"text\" id=\"endereco\" name=\"endereço\" placeholder=\"Endereço:\" >";
+  resultado+="<label for=\"cidade\">Cidade:</label><select id=\"cidade\"><option value=\"Cajazeiras\">Cajazeiras</option></select> ";  resultado+="<input type=\"text\" id=\"bairro\" name=\"bairro\" placeholder=\"Bairro:\" size=\"16\" > ";
+  resultado+="<input type=\"text\" id=\"rua\" name=\"rua\" placeholder=\"Rua:\" size=\"16\" > ";
+  resultado+="<input type=\"number\" id=\"numerocasa\" name=\"numero\" placeholder=\"Numero:\" size=\"4\" > ";
   resultado+="<input type=\"date\" id=\"nascimento\" name=\"Nascimento\" placeholder=\"Data de Nascimento:\" >";
   resultado+="<label for=\"sexo\">Sexo:</label><select id=\"sexo\"><option value=\"Masculino\">Masculino</option><option value=\"Feminino\">Feminino</option><option value=\"Outro\">Outro</option></select>"
   resultado+="<input type=\"submit\" value=\"Criar conta\" id=\"cadastrar\" onclick=\"UserCliente()\" style=\"border-radius: 15px; width: 300px; margin-top: 30px;\" class=\"waves-effect waves-light btn-large\">";
