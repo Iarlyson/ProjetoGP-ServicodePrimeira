@@ -17,9 +17,9 @@ function abrir(){
             if(email==item.val().Email){
                 //Função para menu cliente
                 if(item.val().Cliente=="true"){
-                    resultado+="<ul style=\"display: flex;\"><li><a href='../index.html' class=\"LinkMenu\">Página Inicial</a></li>"
-                    resultado+="<li><a onclick='sair()' href='./html/buscaprofissional.html' class=\"LinkMenu\">Buscar Profissional</a></li></ul>"
-                    resultado+="<li><a onclick='sair()' href='./html/criarServico.html' class=\"LinkMenu\">Buscar Profissional</a></li></ul>"
+                    resultado+="<li><a href='../index.html' class=\"LinkMenu\">Página Inicial</a></li>"
+                    resultado+="<ul style=\"display: flex;\"><li><a onclick='sair()' href='./html/buscaprofissional.html' class=\"LinkMenu\">Buscar Profissional</a></li></ul>"
+                    resultado+="<li><a onclick='sair()' href='./html/criarServico.htmlgit' class=\"LinkMenu\">Buscar Profissional</a></li></ul>"
                     resultado+="<li><a onclick='' href='../html/crudCliente.html' class=\"LinkMenu\">Minha Conta</a></li>"
                     resultado+="<li><a onclick='sair()' href='' class=\"LinkMenu\">Sair</a></li></ul>"
 
@@ -29,7 +29,7 @@ function abrir(){
                 }
                 if(item.val().Profissional=="true"){
                     resultado+="<li><a href='../index.html' class=\"LinkMenu\">Página Inicial</a></li>"
-                    resultado+="<li><a onclick='' href='../html/crudProfissional.html' class=\"LinkMenu\">Minha Conta</a></li>"
+                    resultado+="<ul style=\"display: flex;\"><li><a onclick='' href='../html/crudProfissional.html' class=\"LinkMenu\">Minha Conta</a></li>"
                     resultado+="<li><a onclick='' href='../html/buscaProfissional.html' class=\"LinkMenu\">Buscar Profissional</a></li></ul>"
                     resultado+="<li><a onclick='sair()' href='' class=\"LinkMenu\">Sair</a></li></ul>"
 
