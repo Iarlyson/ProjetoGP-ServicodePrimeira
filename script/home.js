@@ -17,10 +17,10 @@ function abrir(){
             if(email==item.val().Email){
                 //Função para menu cliente
                 if(item.val().Cliente=="true"){
-                    resultado+="<li><a href='../index.html' class=\"LinkMenu\">Página Inicial</a></li>"
+                    resultado+="<ul style=\"display: flex;\"><li><a href='../index.html' class=\"LinkMenu\">Página Inicial</a></li>"
                     resultado+="<li><a onclick='sair()' href='./html/buscaprofissional.html' class=\"LinkMenu\">Buscar Profissional</a></li></ul>"
                     resultado+="<li><a onclick='' href='../html/crudCliente.html' class=\"LinkMenu\">Minha Conta</a></li>"
-                                        resultado+="<li><a onclick='sair()' href='' class=\"LinkMenu\">Sair</a></li></ul>"
+                    resultado+="<li><a onclick='sair()' href='' class=\"LinkMenu\">Sair</a></li></ul>"
 
                     resultado2+="<li><a href=\"#\" class=\"LinkMenuM\">Teste</a></li>"
                     resultado2+="<li><a href=\"#\" class=\"LinkMenuM\">Teste</a></li></ul>"
