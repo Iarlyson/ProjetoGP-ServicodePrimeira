@@ -105,7 +105,7 @@ if (Senha.value==ConfirmacaodeSenha.value) {
         Conta: Conta.value,
         Media: Media,
         NumerodeServicos: NumerodeServicos,
-        Nota: Nota
+        Nota: Nota,
     };
 
       
@@ -182,6 +182,7 @@ function UserCliente(){
     var Cliente = "true"
     var Media = 0;
     var NumerodeServicos = 0;
+    var Nota = 0;
 
 
     
@@ -212,6 +213,7 @@ function UserCliente(){
             Sexo: Sexo.value,
             Media: Media,
             NumerodeServicos: NumerodeServicos,
+            Nota: Nota,
           };
           
     firebase

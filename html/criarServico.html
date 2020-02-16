@@ -1,53 +1,121 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="../materialize/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="../materialize/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
-
     <link rel="stylesheet" href="../css/Desktop.css" type="text/css">
-    <title>Document</title>
+    <title>Buscar Profissional</title>
     <script type="text/javascript">
         window.onload = function(){
           firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-          window.location.href = "../index.html";
+            abrir();
+        if (!user) {
+          window.location.href = "login.html";
         } 
       });
+      
         }
-        </script>
-    </script>
+        </script> 
 </head>
-<body>
+<body id="main">
+    <header class="ContainerMenu">
+
+        <div class="LogoMenu">
+            <img src="../imagem/logowhite.png" alt="logo" width="200px">
+        </div>
+        
+        
+        <div id="OpcoesMenu">
+
+
+        </div>
+            
+    </header>
+    <div class="MenuMobile">
+        <div class="LogoMenu-Mobile">
+            <img src="imagem/LogoMenor.png" alt="logo" width="200px">
+        </div>
+        
+        <div id="OpcoesMenu-Monile">
+            
+        </div>
+    </div>
+    <article>
     <div class="proposta"><b>Criar Proposta</b></div>
     <div class="caixaForm">
         <div>
+          <div><b>Título do Serviço</b></div>
+            <input type="text" id="titulo"></input>
             <div><b>Descrição do Serviço</b></div>
-            <textarea></textarea>
+            <textarea id="descricao"></textarea>
             </br>
             </br>
             <div><b>Tipo de Serviço</b></div>
-            <select id=\"tipoServico">
-              <option value=\"servNormal">Serviço Normal</option>
-              <option value=\"servUrgente">Serviço Urgente</option>
+            <select id="tipoServico">
+              <option value="servNormal">Serviço Normal</option>
+              <option value="servUrgente">Serviço Urgente</option>
             </select>
-            </br>
-            </br>
-            <div><b>Método de Pagamento</b></div>
-            <select id=\"metPagamento">
-              <option value=\"Diária">Diária</option>
-              <option value=\"Hora">Hora</option>
-              <option value=\"Quinzena">Quinzena</option>
-              <option value=\"Mensal">Mensal</option>
-              <option value=\"PorServiço">PorServiço</option>
-            </select>
+            <div><b>Marque o dia para a relização do serviço:</b></div>
+
+            <input type="date" id="dataagendade" name="dataagendade" placeholder="Data de Nascimento:" >
 
             </br>
             </br>
-            <a href="" class="meuButão" style="margin-right: 30px;">Voltar</a>
-            <a href="" class="meuButão">Postar</a>
+            <div><b>Método de Pagamento</b></div>
+            <select id="metPagamento">
+              <option value="Hora">Hora</option>
+              <option value="Diária">Diária</option>
+              <option value="Mensal">Mensal</option>
+              <option value="PorServiço">Por Serviço</option>
+            </select>
+            <div><b>Propor valor:</b></div>
+            <input type="number" id="valor"></input>
+
+            </br>
+            <a href="../index.html" class="meuButão" style="margin-right: 30px;">Cancelar</a>
+            <a class="meuButão" onclick="criarServico()">Postar</a>
         </div>
     </div>
-</body>
-</html>
+  </article>
+  <!--abaixo o footer-->
+  <footer class="page-footer white" style="margin-top: 200px;">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="black-text">Redes Sociais</h5>
+          <a href="https://www.instagram.com/?hl=pt-br"><img src="../imagem/instagram.ico" height="50px" alt="instagram"></a>
+          <a href="https://www.facebook.com/"><img src="../imagem/facebook.ico" height="50px" alt="facebook"></a>
+          <a href="https://twitter.com"><img src="../imagem/twiter.ico" height="50px" alt="twiter"></a>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="black-text">Serviços</h5>
+          <ul>
+            <li><a class="blue-text" href="Contato.html">Contato</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container black-text">
+        © 2020 Serviço de Primeira, Todos os direitos reservados.
+      </div>
+    </div>
+  </footer>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-database.js"></script>
+    <script src="../firebase/firebase.js"></script>
+    <script src="../script/home.js"></script>
+    <script src="../script/autenticacao.js"></script>
+    <script src="../script/crudUsuario.js"></script>
+    <script src="../script/functionCliente.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="../materialize/js/materialize.js"></script>
+    <script src="../materialize/js/init.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    </body>
+    </html>
