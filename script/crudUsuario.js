@@ -14,7 +14,7 @@ function crudCliente(){
     resultado+="<input type=\"email\" id=\"email\" placeholder=\"E-mail:\" >";
     resultado+="<input type=\"tel\" id=\"telefone\" placeholder=\"Telefone:\" >";
     resultado+="<label for=\"cidade\">Cidade:</label><select id=\"cidade\"><option value=\"Cajazeiras\">Cajazeiras</option></select>";
-    resultado+="<input type=\"text\" id=\"bairrp\" placeholder=\"Bairro:\" >";
+    resultado+="<input type=\"text\" id=\"bairro\" placeholder=\"Bairro:\" >";
     resultado+="<input type=\"text\" id=\"rua\" placeholder=\"Rua:\" >";
     resultado+="<input type=\"number\" id=\"numero\" placeholder=\"Numero:\" >";
     resultado+="<input type=\"date\" id=\"nascimento\" name=\"Nascimento\" placeholder=\"Data de Nascimento:\" >";
@@ -35,9 +35,13 @@ function crudCliente(){
             if (email === item.val().Email){
                 document.getElementById("nome").value = item.val().Nome;
                 document.getElementById("cpf").value = item.val().CPF;
+                document.getElementById("telefone").value = item.val().Telefone;
                 document.getElementById("nascimento").value= item.val().Nascimento
                 document.getElementById("email").value = item.val().Email;
-                document.getElementById("endereco").value = item.val().Endereco;
+                document.getElementById("cidade").value = item.val().Cidade;
+                document.getElementById("bairro").value = item.val().Bairro;
+                document.getElementById("rua").value = item.val().Rua;
+                document.getElementById("numero").value = item.val().Numero;
                 document.getElementById("sexo").value = item.val().Sexo;
                 document.getElementById("telefone").value = item.val().Telefone;
             }
@@ -62,15 +66,16 @@ function crudProfissional(){
     resultado+="<input type=\"email\" id=\"email\" placeholder=\"E-mail:\" >";
     resultado+="<input type=\"tel\" id=\"telefone\" placeholder=\"Telefone:\" >";
     resultado+="<label for=\"cidade\">Cidade:</label><select id=\"cidade\"><option value=\"Cajazeiras\">Cajazeiras</option></select>";
-    resultado+="<input type=\"text\" id=\"bairrp\" placeholder=\"Bairro:\" >";
+    resultado+="<input type=\"text\" id=\"bairro\" placeholder=\"Bairro:\" >";
     resultado+="<input type=\"text\" id=\"rua\" placeholder=\"Rua:\" >";
     resultado+="<input type=\"number\" id=\"numero\" placeholder=\"Numero:\" >";
     resultado+="<input type=\"date\" id=\"nascimento\" name=\"Nascimento\" placeholder=\"Data de Nascimento:\" >";
     resultado+="<label for=\"sexo\">Sexo:</label><select id=\"sexo\"><option value=\"Masculino\">Masculino</option><option value=\"Feminino\">Feminino</option><option value=\"Outro\">Outro</option></select>"
     resultado+="<label for=\"Profissão\">Profissão:</label><select id=\"Profissao\"><option value=\"Pedreiro\">Pedreiro</option><option value=\"Encanador\">Encanador</option><option value=\"Eletricista\">Eletricista</option><option value=\"Outro\">Outro</option></select>";
-    resultado+=" <input type=\"text\" name=\"banco\" id=\"banco\" placeholder=\"Banco:\" >"
+    resultado+="<label for=\"sexo\">Descreva sobre seus serviços:</label><textarea id=\"descricao\"></textarea>";
+    resultado+="<label for=\"banco\">Banco:</label><select id=\"banco\"><option value=\"BancodoBrasil\">Banco do Brasil</option><option value=\"BancoCaixa\">Banco Caixa</option><option value=\"BancoSantader\">Banco Santader</option><option value=\"BancoBradesco\">Banco Bradesco</option></select>";
     resultado+=" <input type=\"text\" name=\"agencia\" id=\"agencia\" placeholder=\"Agência:\" >"    
-    resultado+=" <input type=\"number\" name=\"conta\" id=\"conta\" placeholder=\"Conta:\" >"
+    resultado+="<input type=\"number\" name=\"conta\" id=\"conta\" placeholder=\"Conta:\" >"
     resultado+="<input type=\"password\" id=\"senhaatual\" name=\"senha2\" size=\"16\" min=\"8\" max=\"16\"placeholder=\"Senha Atual:\" >";
     resultado+="<input type=\"submit\" id='update' value=\"Salvar Alterações\" onclick=\"atualizarConta()\" style=\"border-radius: 15px; width: 300px; margin-top: 30px;\ margin-right: 10px\" class=\"waves-effect waves-light btn-small\">";
     resultado+="<input type=\"submit\" id='delete' value=\"Excluir Conta\" onclick=\"deleteConta()\" style=\"border-radius: 15px; width: 300px; margin-top: 30px;\" class=\"waves-effect waves-light btn-small\">";
@@ -86,17 +91,22 @@ function crudProfissional(){
         snapshot.forEach(function (item) {
 
          if (email == item.val().Email){
-                document.getElementById("nome").value = item.val().Nome;
-                document.getElementById("cpf").value = item.val().CPF;
-                document.getElementById("nascimento").value= item.val().Nascimento
-                document.getElementById("email").value = item.val().Email;
-                document.getElementById("endereco").value = item.val().Endereco;
-                document.getElementById("sexo").value = item.val().Sexo;
-                document.getElementById("telefone").value = item.val().Telefone;
-                document.getElementById("Profissao").value = item.val().Profissao;
-                document.getElementById("banco").value = item.val().Banco;
-                document.getElementById("agencia").value = item.val().Agencia;
-                document.getElementById("conta").value = item.val().Conta;
+            document.getElementById("nome").value = item.val().Nome;
+            document.getElementById("cpf").value = item.val().CPF;
+            document.getElementById("telefone").value = item.val().Telefone;
+            document.getElementById("nascimento").value= item.val().Nascimento
+            document.getElementById("email").value = item.val().Email;
+            document.getElementById("cidade").value = item.val().Cidade;
+            document.getElementById("bairro").value = item.val().Bairro;
+            document.getElementById("rua").value = item.val().Rua;
+            document.getElementById("numero").value = item.val().Numero;
+            document.getElementById("sexo").value = item.val().Sexo;
+            document.getElementById("telefone").value = item.val().Telefone;
+            document.getElementById("Profissao").value = item.val().Profissao;
+            document.getElementById("descricao").value = item.val().Descricao;
+            document.getElementById("banco").value = item.val().Banco;
+            document.getElementById("agencia").value = item.val().Agencia;
+            document.getElementById("conta").value = item.val().Conta;
             }
         });
     });
@@ -113,9 +123,9 @@ function crudProfissional(){
             email = user.email;
         }
         
+        
                 firebase.database().ref('Usuarios').on('value', function (snapshot) {
                     snapshot.forEach(function (item) {
-                        console.log("Email comparado: " + item.val().Email);
                         if (email === item.val().Email) {
 
                             //Definição das variáveis do lado cliente e profissional
@@ -124,17 +134,14 @@ function crudProfissional(){
                             var CPF = document.getElementById("cpf").value;
                             var Email = document.getElementById("email").value;
                             var Nascimento = document.getElementById("nascimento").value;
-                            var Endereco = document.getElementById("endereco").value;
+                            var Bairro = document.getElementById("bairro").value;
+                            var Rua = document.getElementById("rua").value;
+                            var Numero = document.getElementById("numero").value;
                             var Sexo = document.getElementById("sexo").value;
                             var Telefone = document.getElementById("telefone").value;
-                            //Definição das variáveis exclusivas do lado profissional
-                            var Profissao = document.getElementById("Profissao").value;
-                            var Banco = document.getElementById("banco").value;
-                            var Agencia = document.getElementById("agencia").value;
-                            var Conta = document.getElementById("conta").value;
-                            
+                           
+                           
                             if (item.val().Nome !== Nome && Nome !== ""){
-                                
                                 var Email = document.getElementById("email");
                                 var Senha = document.getElementById("senhaatual");
                             
@@ -146,6 +153,7 @@ function crudProfissional(){
                                         Nome: Nome
                                     });
                                     alert("Nome Atualizado");
+                                    abrir();
                                 })
                                 .catch(function (error) {
                                     console.error(error.code);
@@ -169,6 +177,7 @@ function crudProfissional(){
                                         CPF: CPF
                                     });
                                     alert("CPF Atualizado");
+                                    abrir();
                                 })
                                 .catch(function (error) {
                                     console.error(error.code);
@@ -201,6 +210,31 @@ function crudProfissional(){
                                         
                                     });
                                     alert("Data de Nascimento Atualizado");
+                                    abrir();
+                                })
+                                .catch(function (error) {
+                                    console.error(error.code);
+                                    console.error(error.message);
+                                    alert("Sua Senha atual digitada errada!");
+                            });
+                            
+                            }
+
+                            
+                            if (item.val().Bairro !== Bairro && Bairro !== "") {
+                                
+                                var Email = document.getElementById("email");
+                                var Senha = document.getElementById("senhaatual");
+                            
+                                firebase
+                                .auth()
+                                .signInWithEmailAndPassword(Email.value, Senha.value)
+                                .then(function(result) {
+                                    firebase.database().ref('/Usuarios/' + key).update({
+                                        Bairro: Bairro
+                                    });
+                                    alert("Bairro Atualizado");
+                                    abrir();
                                 })
                                 .catch(function (error) {
                                     console.error(error.code);
@@ -211,9 +245,7 @@ function crudProfissional(){
                             }
 
 
-
-                            
-                            if (item.val().Endereco !== Endereco && Endereco !== "") {
+                            if (item.val().Rua !== Rua && Rua !== "") {
                                 
                                 var Email = document.getElementById("email");
                                 var Senha = document.getElementById("senhaatual");
@@ -223,9 +255,33 @@ function crudProfissional(){
                                 .signInWithEmailAndPassword(Email.value, Senha.value)
                                 .then(function(result) {
                                     firebase.database().ref('/Usuarios/' + key).update({
-                                        Endereco: Endereco
+                                        Rua: Rua
                                     });
-                                    alert("Endereço Atualizado");
+                                    alert("Rua Atualizado");
+                                    abrir();
+                                })
+                                .catch(function (error) {
+                                    console.error(error.code);
+                                    console.error(error.message);
+                                    alert("Sua Senha atual digitada errada!");
+                            });
+                            
+                            }
+
+                            if (item.val().Numero !== Numero && Numero !== "") {
+                                
+                                var Email = document.getElementById("email");
+                                var Senha = document.getElementById("senhaatual");
+                            
+                                firebase
+                                .auth()
+                                .signInWithEmailAndPassword(Email.value, Senha.value)
+                                .then(function(result) {
+                                    firebase.database().ref('/Usuarios/' + key).update({
+                                        Numero: Numero
+                                    });
+                                    alert("Numero Atualizado");
+                                    abrir();
                                 })
                                 .catch(function (error) {
                                     console.error(error.code);
@@ -249,6 +305,7 @@ function crudProfissional(){
                                         Sexo: Sexo
                                     });
                                     alert("Sexo Atualizado");
+                                    abrir();
                                 })
                                 .catch(function (error) {
                                     console.error(error.code);
@@ -272,6 +329,7 @@ function crudProfissional(){
                                         Telefone: Telefone
                                     });
                                     alert("Telefone Atualizado");
+                                    abrir();
                                 })
                                 .catch(function (error) {
                                     console.error(error.code);
@@ -281,6 +339,12 @@ function crudProfissional(){
                             
                             }
                         if(item.val().Profissional == "true"){
+                            //Definição das variáveis exclusivas do lado profissional
+                            var Descricao = document.getElementById("descricao").value
+                            var Profissao = document.getElementById("Profissao").value;
+                            var Banco = document.getElementById("banco").value;
+                            var Agencia = document.getElementById("agencia").value;
+                            var Conta = document.getElementById("conta").value;
                             if (item.val().Profissao !== Profissao) {
                                 
                                 var Email = document.getElementById("email");
@@ -294,6 +358,7 @@ function crudProfissional(){
                                         Profissao: Profissao
                                     });
                                     alert("Profissao Atualizada");
+                                    abrir();
                                 })
                                 .catch(function (error) {
                                     console.error(error.code);
@@ -317,6 +382,7 @@ function crudProfissional(){
                                         Banco: Banco
                                     });
                                     alert("Banco Atualizado");
+                                    abrir();
                                 })
                                 .catch(function (error) {
                                     console.error(error.code);
@@ -339,6 +405,7 @@ function crudProfissional(){
                                         Agencia: Agencia
                                     });
                                     alert("Agencia Atualizado");
+                                    abrir();
                                 })
                                 .catch(function (error) {
                                     console.error(error.code);
@@ -362,6 +429,29 @@ function crudProfissional(){
                                         Conta: Conta
                                     });
                                     alert("Conta Atualizado");
+                                    abrir();
+                                })
+                                .catch(function (error) {
+                                    console.error(error.code);
+                                    console.error(error.message);
+                                    alert("Sua Senha atual digitada errada!");
+                            });
+                            
+                            }
+                            if (item.val().Descricao !== Descricao && Descricao !== "") {
+                                
+                                var Email = document.getElementById("email");
+                                var Senha = document.getElementById("senhaatual");
+                            
+                                firebase
+                                .auth()
+                                .signInWithEmailAndPassword(Email.value, Senha.value)
+                                .then(function(result) {
+                                    firebase.database().ref('/Usuarios/' + key).update({
+                                        Descricao: Descricao
+                                    });
+                                    alert("Descricao Atualizado");
+                                    abrir();
                                 })
                                 .catch(function (error) {
                                     console.error(error.code);

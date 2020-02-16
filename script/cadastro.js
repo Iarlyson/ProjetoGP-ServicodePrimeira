@@ -19,7 +19,7 @@ function CadastroProfissional(){
     resultado+="<label for=\"sexo\">Descreva sobre seus serviços:</label><textarea id=\"descricao\"></textarea>"
     resultado+="<label for=\"sexo\">Sexo:</label><select id=\"sexo\"><option value=\"Masculino\">Masculino</option><option value=\"Feminino\">Feminino</option><option value=\"Outro\">Outro</option></select>";
     resultado+="<h5>Dados Bancários</h5>";
-    resultado+="<label for=\"sexo\">Banco:</label><select id=\"conta\"><option value=\"BancodoBrasil\">Banco do Brasil</option><option value=\"BancoCaixa\">Banco Caixa</option><option value=\"BancoSantader\">Banco Santader</option><option value=\"BancoBradesco\">Banco Bradesco</option></select>"  
+    resultado+="<label for=\"banco\">Banco:</label><select id=\"banco\"><option value=\"BancodoBrasil\">Banco do Brasil</option><option value=\"BancoCaixa\">Banco Caixa</option><option value=\"BancoSantader\">Banco Santader</option><option value=\"BancoBradesco\">Banco Bradesco</option></select>"  
     resultado+=" <input type=\"text\" name=\"agencia\" id=\"agencia\" placeholder=\"Agência:\" >"    
     resultado+=" <input type=\"number\" name=\"conta\" id=\"conta\" placeholder=\"Conta:\" >"  
     resultado+="<input type=\"submit\" value=\"Criar conta\" id=\"cadastrar\" onclick=\"UserProfissional()\" style=\"border-radius: 15px; width: 300px; margin-top: 30px;\" class=\"waves-effect waves-light btn-large\">";
@@ -75,6 +75,7 @@ var Conta = document.getElementById("conta");
 var Profissional = "true";
 var Media = 0;
 var NumerodeServicos = 0;
+var Nota = 0;
 
 
 //Função para criar conta de Email e Senha no autenticador e para cadastrar dados no realtime
@@ -99,11 +100,12 @@ if (Senha.value==ConfirmacaodeSenha.value) {
         Chave: chave,
         Sexo: Sexo.value,
         Profissao: Profissao.value,
-        Banco: Banco,
+        Banco: Banco.value,
         Agencia: Agencia.value,
         Conta: Conta.value,
         Media: Media,
         NumerodeServicos: NumerodeServicos,
+        Nota: Nota
     };
 
       
