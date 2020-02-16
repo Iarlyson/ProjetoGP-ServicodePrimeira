@@ -16,9 +16,10 @@ function CadastroProfissional(){
     resultado+="<input type=\"text\" id=\"rua\" name=\"rua\" placeholder=\"Rua:\" size=\"16\" > ";
     resultado+="<input type=\"number\" id=\"numerocasa\" name=\"numero\" placeholder=\"Numero:\" size=\"4\" > ";
     resultado+="<label for=\"Profissão\">Profissão:</label><select id=\"Profissao\"><option value=\"Pedreiro\">Pedreiro</option><option value=\"Encanador\">Encanador</option><option value=\"Eletricista\">Eletricista</option><option value=\"Outro\">Outro</option></select>";
+    resultado+="<label for=\"sexo\">Descreva sobre seus serviços:</label><textarea id=\"descricao\"></textarea>"
     resultado+="<label for=\"sexo\">Sexo:</label><select id=\"sexo\"><option value=\"Masculino\">Masculino</option><option value=\"Feminino\">Feminino</option><option value=\"Outro\">Outro</option></select>";
     resultado+="<h5>Dados Bancários</h5>";
-    resultado+=" <input type=\"text\" name=\"banco\" id=\"banco\" placeholder=\"Banco:\" >"
+    resultado+="<label for=\"sexo\">Banco:</label><select id=\"conta\"><option value=\"BancodoBrasil\">Banco do Brasil</option><option value=\"BancoCaixa\">Banco Caixa</option><option value=\"BancoSantader\">Banco Santader</option><option value=\"BancoBradesco\">Banco Bradesco</option></select>"  
     resultado+=" <input type=\"text\" name=\"agencia\" id=\"agencia\" placeholder=\"Agência:\" >"    
     resultado+=" <input type=\"number\" name=\"conta\" id=\"conta\" placeholder=\"Conta:\" >"  
     resultado+="<input type=\"submit\" value=\"Criar conta\" id=\"cadastrar\" onclick=\"UserProfissional()\" style=\"border-radius: 15px; width: 300px; margin-top: 30px;\" class=\"waves-effect waves-light btn-large\">";
@@ -51,7 +52,6 @@ function CadastroCliente(){
   
 }
 
-
 function UserProfissional(){
 //Variaveis  
 
@@ -62,13 +62,19 @@ var Nascimento = document.getElementById("nascimento");
 var Telefone = document.getElementById("telefone");
 var Senha = document.getElementById("senha");
 var ConfirmacaodeSenha = document.getElementById("senhaconfirmar");
-var Endereco = document.getElementById("endereco");
+var Cidade = document.getElementById("cidade");
+var Bairro = document.getElementById("bairro");
+var Rua = document.getElementById("rua");
+var Numero = document.getElementById("numerocasa");
+var Descricao = document.getElementById("descricao");
 var Sexo = document.getElementById("sexo");
 var Profissao = document.getElementById("Profissao");
 var Banco = document.getElementById("banco");
 var Agencia = document.getElementById("agencia");
 var Conta = document.getElementById("conta");
 var Profissional = "true";
+var Media = 0;
+var NumerodeServicos = 0;
 
 
 //Função para criar conta de Email e Senha no autenticador e para cadastrar dados no realtime
@@ -84,15 +90,22 @@ if (Senha.value==ConfirmacaodeSenha.value) {
         Telefone : Telefone.value,
         Nascimento : Nascimento.value,
         Profissional: Profissional,
+        Cidade : Cidade.value,
+        Bairro :  Bairro.value,
+        Rua: Rua.value,
+        Numero: Numero.value,
+        Descricao: Descricao.value,
         CPF: CPF.value,
         Chave: chave,
-        Endereco: Endereco.value,
         Sexo: Sexo.value,
         Profissao: Profissao.value,
-        Banco: Banco.value,
+        Banco: Banco,
         Agencia: Agencia.value,
         Conta: Conta.value,
+        Media: Media,
+        NumerodeServicos: NumerodeServicos,
     };
+
       
 firebase
 .auth()
@@ -112,15 +125,17 @@ CPF.value="";
 EmailPuro.value="";
 Nascimento.value="";
 Telefone.value="";
+Bairro.value=""; 
+Rua.value="";
+Numero.value="";
+Descricao.value="";
 Senha.value="";
 ConfirmacaodeSenha.value="";
-Endereco.value="";
 Sexo.value="";
 Profissao.value="";
 Banco.value="";
 Agencia.value="";
 Conta.value="";
-
 })
 
 
@@ -154,12 +169,17 @@ function UserCliente(){
     var CPF = document.getElementById("cpf");
     var EmailPuro = document.getElementById("email");
     var Nascimento = document.getElementById("nascimento");
+    var Cidade = document.getElementById("cidade");
+    var Bairro = document.getElementById("bairro");
+    var Rua = document.getElementById("rua");
+    var Numero = document.getElementById("numerocasa");
     var Senha = document.getElementById("senha");
     var ConfirmacaodeSenha = document.getElementById("senhaconfirmar");
-    var Endereco = document.getElementById("endereco");
     var Sexo = document.getElementById("sexo");
     var Telefone = document.getElementById("telefone");
     var Cliente = "true"
+    var Media = 0;
+    var NumerodeServicos = 0;
 
 
     
@@ -180,11 +200,16 @@ function UserCliente(){
             Nome : Nome.value,
             Email : Email,
             Nascimento: Nascimento.value,
+            Cidade : Cidade.value,
+            Bairro :  Bairro.value,
+            Rua: Rua.value,
+            Numero: Numero.value,
             Telefone : Telefone.value,
             CPF: CPF.value,
             Chave: chave,
-            Endereco: Endereco.value,
             Sexo: Sexo.value,
+            Media: Media,
+            NumerodeServicos: NumerodeServicos,
           };
           
     firebase
@@ -203,10 +228,12 @@ function UserCliente(){
     CPF.value="";
     EmailPuro.value="";
     Nascimento.value="";
+    Bairro.value=""; 
+    Rua.value="";
+    Numero.value="";
     Telefone.value="";
     Senha.value="";
     ConfirmacaodeSenha.value="";
-    Endereco.value="";
     Sexo.value="";
 
 })
