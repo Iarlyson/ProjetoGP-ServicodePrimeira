@@ -19,8 +19,9 @@ function abrir(){
                 if(item.val().Cliente=="true"){
                     resultado+="<li><a href='../index.html' class=\"LinkMenu\">Página Inicial</a></li>"
                     resultado+="<li><a onclick='sair()' href='./html/buscaprofissional.html' class=\"LinkMenu\">Buscar Profissional</a></li></ul>"
+                    resultado+="<li><a onclick='sair()' href='./html/criarServico.html' class=\"LinkMenu\">Buscar Profissional</a></li></ul>"
                     resultado+="<li><a onclick='' href='../html/crudCliente.html' class=\"LinkMenu\">Minha Conta</a></li>"
-                                        resultado+="<li><a onclick='sair()' href='' class=\"LinkMenu\">Sair</a></li></ul>"
+                    resultado+="<li><a onclick='sair()' href='' class=\"LinkMenu\">Sair</a></li></ul>"
 
                     resultado2+="<li><a href=\"#\" class=\"LinkMenuM\">Teste</a></li>"
                     resultado2+="<li><a href=\"#\" class=\"LinkMenuM\">Teste</a></li></ul>"
