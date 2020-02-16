@@ -21,8 +21,7 @@ function pesquisar(){
                     resultado += "<p>Avaliação: " +item.val().Media+"</p><br/>";
                 }
             main.innerHTML = resultado;
-
-
+                abrir();
         });
     });
 
