@@ -5,7 +5,7 @@
     <link href="../materialize/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="../materialize/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link rel="stylesheet" href="../css/Desktop.css" type="text/css">
-    <title>Crud Cliente</title>
+    <title>Buscar Proficional</title>
     <script type="text/javascript">
         window.onload = function(){
           firebase.auth().onAuthStateChanged(function(user) {
@@ -48,20 +48,21 @@
         
 
           <h3 class="center-align white-text">Buscar Serviço</h3>
-            <div style="border-radius: 10px;  width: 600px; height: 8%x; margin-top: 100px;" class="container white">
-              <div class="col s12 m10 l8">
+            <div style="border-radius: 10px; margin-top: 100px;" class="col s12 m6 l6 container white">
                   <br><br>
                   <center>
-                      <div style="padding: 20px;"  class="col l4" id="divBusca">
+                      <div style="padding: 20px;" id="divBusca">
                         <label for="Profissão">Profissão:</label><select id="Profissao"><option value="Pedreiro">Pedreiro</option><option value="Encanador">Encanador</option><option value="Eletricista">Eletricista</option><option value="Outro">Outro</option><option value="Todos">Todos</option></select>
                         <a style="border-radius: 15px; margin-top: 30px;" onclick="pesquisar()" style="font-style:italic;" class="waves-effect waves-light btn-large">Pesquisar</a>
                     </div>
-                  </center>                  
-              </div>            
+                  </center>           
         </div>
 
-        <div id="resultado" class="center-align white-text container black">
+        <div style="border-radius: 15px; margin-top: 10px;"class=" col s12 m6 container white">
+          
+            <div style="padding: 20px;" id="resultado" class="container black-text">
 
+            </div>
         </div>
     
 
