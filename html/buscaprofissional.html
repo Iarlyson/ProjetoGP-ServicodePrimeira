@@ -5,22 +5,18 @@
     <link href="../materialize/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="../materialize/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link rel="stylesheet" href="../css/Desktop.css" type="text/css">
-<<<<<<< HEAD
-    <title>Buscar Proficional</title>
-=======
     <title>Buscar Profissional</title>
->>>>>>> 4f3c057a932d9510189b2ba773f724971c4fabe9
     <script type="text/javascript">
-        window.onload = function(){
-          firebase.auth().onAuthStateChanged(function(user) {
-            abrir();
-        if (!user) {
-          window.location.href = "login.html";
-        } 
-      });
-      
-        }
-        </script> 
+      window.onload = function(){
+        firebase.auth().onAuthStateChanged(function(user) {
+          abrir();
+      if (!user) {
+        window.location.href = "login.html";
+      } 
+    });
+    
+      }
+      </script>
 </head>
 <body id="main">
     <header class="ContainerMenu">
@@ -102,11 +98,12 @@
     <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-database.js"></script>
+    <script src="../script/funcoesCliente.js"></script>
     <script src="../firebase/firebase.js"></script>
     <script src="../script/home.js"></script>
     <script src="../script/autenticacao.js"></script>
     <script src="../script/crudUsuario.js"></script>
-    <script src="../script/functionCliente.js"></script>
+    <script src="../script/funcoesCliente.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="../materialize/js/materialize.js"></script>
     <script src="../materialize/js/init.js"></script>
